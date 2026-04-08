@@ -156,7 +156,30 @@ When support chains thin out, systems often become noisier before they visibly c
 
 ## 7. Disturbance
 
-Disturbance is anything that repeatedly weakens the anchor, deforms transmission, erodes trust, or raises coordination cost.
+Disturbance is anything that repeatedly weakens the anchor, deforms transmission, erodes trust, or raises coordination cost without productive return.
+
+Disturbance may come from:
+- a person
+- a role
+- an incentive
+- a contradiction
+- an environmental pressure
+- a rigid norm
+- a stage mismatch
+
+Not every disagreement is disturbance.
+The correct question is not:
+- Who resists me?
+
+The correct question is:
+- What repeatedly weakens the system’s ability to remain coherent?
+
+A disturbance may look powerful not because it is inherently strong, but because:
+- the anchor is already weak
+- support chains are thin
+- roles are confused
+- translation between layers has broken
+- the system is already in a stage of high fragility
 
 ## 8. Drift
 
