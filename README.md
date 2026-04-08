@@ -2,14 +2,14 @@
 
 # 世界结构.skill
 
-### 把复杂对象当作**结构系统**来分析  
-而不是把一切都还原成情绪、偶然事件或单个人的问题
+### 不是解释万物，而是看清复杂对象的结构。  
+*See the structure, not just the symptom.*
 
 <br>
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-f5c542?style=flat-square)
-![Skill](https://img.shields.io/badge/Agent%20Skill-World%20Structure-7c3aed?style=flat-square)
-![Focus](https://img.shields.io/badge/Focus-Structural%20Analysis-2563eb?style=flat-square)
+![Skill](https://img.shields.io/badge/World%20Structure-Skill-7c3aed?style=flat-square)
+![Focus](https://img.shields.io/badge/Focus-Hidden%20Patterns-2563eb?style=flat-square)
 ![Scope](https://img.shields.io/badge/Scope-Teams%20%7C%20Relationships%20%7C%20Projects-059669?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Active-black?style=flat-square)
 
