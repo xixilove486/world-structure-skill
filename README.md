@@ -1,71 +1,120 @@
+<div align="center">
+
 # 世界结构.skill
 
-> 把复杂对象当作**结构系统**来分析，而不是把一切都还原成情绪、偶然事件或单个人的问题。
+### 把复杂对象当作**结构系统**来分析  
+而不是把一切都还原成情绪、偶然事件或单个人的问题
 
-`世界结构.skill` 是一个面向 AI 助手的结构分析技能包。  
-它帮助模型从 **锚点、约束、角色、支持链、扰动、熵增与演化阶段** 出发，分析团队、关系、项目、制度、社群与复杂处境。
+<br>
 
----
+![License: MIT](https://img.shields.io/badge/License-MIT-f5c542?style=flat-square)
+![Skill](https://img.shields.io/badge/Agent%20Skill-World%20Structure-7c3aed?style=flat-square)
+![Focus](https://img.shields.io/badge/Focus-Structural%20Analysis-2563eb?style=flat-square)
+![Scope](https://img.shields.io/badge/Scope-Teams%20%7C%20Relationships%20%7C%20Projects-059669?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Active-black?style=flat-square)
 
-## 一句话简介
-
-**一个用于分析团队、关系、项目、制度与复杂处境的结构分析 skill。**
-
----
-
-## 它解决什么问题
-
-这个 skill 适合处理下面这些问题：
-
-- 为什么一个团队总在原地打转
-- 为什么一段关系总反复失衡
-- 为什么一个项目越来越忙却越来越空心
-- 为什么一个制度表面稳定、内部却逐渐僵化
-- 为什么某个组织正在分裂、漂移、失去活力，或者逼近转折点
-
-它尤其适合：
-- 重复出现的问题
-- 多角色、多层级、多约束混合的问题
-- 需要看“深层结构”而不是只看表面症状的问题
+</div>
 
 ---
 
-## 它不做什么
+> [!NOTE]
+> **世界结构.skill** 不是“解释万物”的终极神谕。  
+> 它是一套给 AI 和人都能用的**结构分析工具**：  
+> 从**锚点、约束、角色、支持链、扰动、熵增与演化阶段**出发，判断一个系统如何形成、维持、失衡、转折、更新与崩解。
 
-这个 skill **不是**：
+## 为什么需要这个 skill？
 
-- 未来事件的精确预测器
-- 法律、医疗、金融等专业意见替代品
-- 给人贴“本质标签”的工具
-- 用来攻击、羞辱或武器化分析对象的语言系统
-- “解释万物”的终极神谕
+很多复杂问题之所以难，不是因为没有答案，  
+而是因为人们太快去判断对错，却没有先把系统看成系统。
+
+你看到的可能是：
+- 一个团队总在原地打转
+- 一段关系反复失衡
+- 一个项目越来越忙，却越来越空心
+- 一个制度表面稳定，内部却逐渐僵化
+- 一个组织看似还活着，实际上正在漂移、碎裂或失去活力
+
+**世界结构.skill** 想做的事很简单：
+
+> **先看结构，再谈判断。**  
+> **先看约束，再谈建议。**  
+> **先看阶段，再谈症状。**
+
+---
+
+## 它能做什么？
+
+这个 skill 主要适合：
+
+- 团队分析
+- 关系分析
+- 项目诊断
+- 组织与制度分析
+- 社群与复杂处境分析
+- 反复冲突、长期停滞、边界模糊、暗中漂移的系统判断
+
+它最擅长输出五种东西：
+
+1. **Structural Judgment**  
+   当前系统发生了什么
+
+2. **Core Contradiction**  
+   最深的结构矛盾是什么
+
+3. **Main Risk Direction**  
+   如果不改，最可能往哪里坏
+
+4. **Best Intervention Priority**  
+   先修哪里最值
+
+5. **Uncertainty / Alternative Readings**  
+   还存在哪些不确定项
+
+---
+
+## 它不做什么？
+
+> [!WARNING]
+> 这个 skill **不是**：
+>
+> - 未来事件的精确预测器
+> - 法律、医疗、金融等专业判断的替代品
+> - 给人贴“本质标签”的工具
+> - 用来攻击、羞辱或武器化分析对象的语言系统
+> - “我懂你的一切”的人格审判器
 
 ---
 
 ## 核心分析主轴
 
-这个 skill 默认从以下七个方向看系统：
+这个 skill 默认从七个方向看系统：
 
-1. **Anchor**  
-   系统围绕什么在维持、追求或漂移
+| 维度 | 问题 |
+|---|---|
+| **Anchor** | 系统围绕什么在维持、追求或漂移？ |
+| **Constraints** | 什么在限制它？ |
+| **Roles & Layers** | 谁在维持、谁在推动、谁在连接、谁在阻塞？ |
+| **Support Chains** | 资源、信任、记忆、合法性与情感投入从哪里来？ |
+| **Disturbance / Drift / Entropy** | 什么在让系统失真、漂移、僵化、分裂或空心化？ |
+| **Stage** | 它正处于形成、扩张、瓶颈、转型、稳定、僵化、碎裂还是更新尝试？ |
+| **Intervention Priority** | 先修哪里最值？ |
 
-2. **Constraints**  
-   什么在限制它
+---
 
-3. **Roles and Layers**  
-   谁在维持、谁在推动、谁在连接、谁在阻塞
+## 使用方式
 
-4. **Support Chains**  
-   资源、信任、记忆、合法性与情感投入从哪里来
+### 给 AI 的使用方式
+- 把 `SKILL.md` 当成轻量主入口
+- 把 `resources/` 当成概念与长文参考层
+- 把 `templates/` 当成输出模板
+- 把 `examples/` 当成风格示范
 
-5. **Disturbance / Drift / Entropy**  
-   什么在让系统失真、漂移、僵化、分裂或空心化
-
-6. **Stage**  
-   它现在处于形成、扩张、瓶颈、转型、稳定、僵化、碎裂还是更新尝试
-
-7. **Intervention Priority**  
-   先修哪里最值
+### 给人类读者的阅读顺序
+1. `README.md`
+2. `SKILL.md`
+3. `resources/core-concepts.md`
+4. `resources/guardrails.md`
+5. `resources/world-model/00-index.md`
 
 ---
 
@@ -107,32 +156,12 @@ world-structure-skill/
 
 ---
 
-## 如何使用
-
-### 对 AI 的使用方式
-把 `SKILL.md` 当成轻量主入口。  
-把 `resources/` 当成概念与长文参考层。  
-把 `templates/` 当成输出模板。  
-把 `examples/` 当成风格示范。
-
-### 对人类读者的使用方式
-先看：
-- `README.md`
-- `SKILL.md`
-
-再按需深入：
-- `resources/core-concepts.md`
-- `resources/guardrails.md`
-- `resources/world-model/00-index.md`
-
----
-
 ## 长文参考层
 
-这个仓库现在同时包含两种长文结构：
+这个仓库现在包含三种长文结构：
 
 ### 1. 拆分版
-放在：
+位置：
 - `resources/world-model/`
 
 适合：
@@ -142,7 +171,7 @@ world-structure-skill/
 - 针对性更新
 
 ### 2. 完整单文件版
-放在：
+位置：
 - `resources/world-model/world-model-full.md`
 
 适合：
@@ -151,7 +180,7 @@ world-structure-skill/
 - 保留原始长文连续性
 
 ### 3. 参考与验证附录
-放在：
+位置：
 - `resources/world-model/13-references-and-validation.md`
 
 适合查看：
@@ -162,48 +191,53 @@ world-structure-skill/
 
 ---
 
-## 技能定位
-
-这个仓库不是在说“结构就是一切”。  
-它只是提出：
-
-> 很多复杂问题之所以难，不是因为没有答案，而是因为人们还没先把系统看成系统。
-
----
-
-## 输出应该长什么样
-
-一个好输出通常包含：
-
-- **Structural Judgment**  
-  当前系统发生了什么
-
-- **Core Contradiction**  
-  最深的结构矛盾是什么
-
-- **Main Risk Direction**  
-  如果不改，系统最可能往哪里坏
-
-- **Best Intervention Priority**  
-  先修哪里最值
-
-- **Uncertainty / Alternative Readings**  
-  还有哪些不确定项
-
----
-
 ## 设计原则
 
-这个 skill 有四条硬原则：
+<div align="center">
 
-1. **结构优先于责备**
-2. **高成本信号优先于宣称**
-3. **约束优先于建议**
-4. **不确定性必须显式保留**
+| 原则 | 含义 |
+|---|---|
+| **结构优先于责备** | 先看系统，再谈责任 |
+| **高成本信号优先于宣称** | 先看行动，再听口号 |
+| **约束优先于建议** | 先看承载，再谈改进 |
+| **不确定性必须显式保留** | 不把模型当神谕 |
+
+</div>
+
+---
+
+## 一个好输出长什么样？
+
+```text
+Structural Judgment
+Core Contradiction
+Main Risk Direction
+Best Intervention Priority
+Uncertainty / Alternative Readings
+```
+
+简洁、清醒、不武器化。  
+这比“宏大、激烈、像在审判世界”的输出更有价值。
+
+---
+
+## 项目定位
+
+> [!TIP]
+> 这个仓库不是在说“结构就是一切”。  
+> 它只是提出：
+>
+> **很多复杂问题之所以难，不是因为没有答案，  
+> 而是因为人们还没先把系统看成系统。**
 
 ---
 
 ## 最后一句
 
-**世界结构.skill 不是世界本身。**  
-它只是试图用同一套结构语言，去看清复杂对象是怎么形成、维持、失衡、转折、更新与崩解的。
+<div align="center">
+
+### **世界结构.skill 不是世界本身。**  
+它只是试图用同一套结构语言，  
+去看清复杂对象是怎么形成、维持、失衡、转折、更新与崩解的。
+
+</div>
