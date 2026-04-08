@@ -185,36 +185,113 @@ A disturbance may look powerful not because it is inherently strong, but because
 
 Drift is slow movement away from the functional center of the system.
 
+It often appears as:
+- anchor hollowing
+- ritual replacing function
+- extraction replacing renewal
+- control replacing trust
+- growth replacing coherence
+- survival replacing purpose
+
+Drift is dangerous because it can happen without formal breakdown.
+
+The system may still look alive while:
+- meaning has thinned out
+- coordination has become performative
+- the visible form survives but its original function has faded
+- people are still participating, but no longer for the same reason
+
+A system in drift is often hardest to diagnose because it still resembles itself from the outside.
+
 ## 9. Entropy
 
 Entropy is the tendency of systems to become more costly, noisy, rigid, fragmented, or empty unless renewed.
+
+It may look like:
+- bureaucratic thickening
+- repeated misunderstanding
+- memory loss
+- role confusion
+- exhaustion
+- symbolic maintenance without real function
+- increasing effort for decreasing coherence
+
+Entropy is normal.
+The real question is what renews the system.
+
+A system with no renewal pathway may survive for a while through inertia, fear, habit, or extraction, but it becomes increasingly brittle.
 
 ## 10. Stage
 
 A stage is the rough developmental position of the system.
 
+Typical stage language:
+- formation
+- expansion
+- bottleneck
+- transition
+- stabilization
+- rigidity
+- fragmentation
+- renewal attempt
+
+Stage does not equal fate.
+It is a way to interpret symptoms more accurately.
+
+The same symptom means different things in different stages.
+
+For example:
+- disorder in formation may indicate openness
+- disorder in fragmentation may indicate breakdown
+- rigidity in stabilization may protect coherence
+- rigidity in decline may block renewal
+
+Stage judgment is therefore not decorative.
+It changes the meaning of what is being observed.
+
 ## 11. Core Contradiction
 
 The core contradiction is the deepest tension generating multiple visible symptoms.
 
+Examples:
+- growth outrunning structure
+- control outrunning trust
+- extraction outrunning renewal
+- identity outrunning reality
+- speed outrunning memory
+- form surviving after meaning has thinned out
+
+A strong diagnosis usually identifies the core contradiction early.
+
+Without this, analysis often becomes a list of symptoms with no center.
+
+A core contradiction is useful because it helps answer:
+- what the visible problems have in common
+- what keeps reproducing the same surface failures
+- where intervention has the highest leverage
 ## 12. Intervention Priority
 
 Intervention priority is the first repair point with the highest structural leverage.
 
-## 7. Disturbance
-Disturbance is anything that repeatedly weakens the anchor, deforms transmission, erodes trust, or raises coordination cost.
+This is not always:
+- the loudest problem
+- the most dramatic problem
+- the most emotionally satisfying target
 
-## 8. Drift
-Drift is slow movement away from the functional center of the system.
+A system often improves fastest when the first repair hits:
+- the bottleneck
+- the trust failure
+- the broken translation layer
+- the renewal gap
+- the hollow anchor
 
-## 9. Entropy
-Entropy is the tendency of systems to become more costly, noisy, rigid, fragmented, or empty unless renewed.
+Choosing intervention priority is one of the most important practical uses of the model.
 
-## 10. Stage
-A stage is the rough developmental position of the system.
+The point is not to explain everything first.
+The point is to identify what, if repaired, changes the rest.
 
-## 11. Core Contradiction
-The core contradiction is the deepest tension generating multiple visible symptoms.
+## Final Note
 
-## 12. Intervention Priority
-Intervention priority is the first repair point with the highest structural leverage.
+These concepts are meant to clarify structure, not freeze reality.
+
+They should make complex situations more legible, not more self-righteous.
