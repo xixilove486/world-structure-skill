@@ -2,9 +2,30 @@
 
 This directory contains the long-form reference layer for the World Structure skill.
 
-It now includes both:
-- a **section-based navigation set** for easier reading and maintenance
-- a **full-length single-file version** for archival use and direct long-form reading
+It includes:
+- a **section-based navigation set** for normal use
+- a **full-length single-file version** for archival reading
+- a **references / validation appendix** for sources, methodology, and theory dialogue
+
+---
+
+## Default Loading Priority
+
+Use these in this order:
+
+1. `01-model-positioning.md`
+2. `02-core-principles.md`
+3. `03-core-concepts.md`
+4. `04-evolution-stages.md`
+5. `05-diagnostic-framework.md`
+6. `06-intervention-rules.md`
+7. `07-boundaries-and-warnings.md`
+8. `08-extended-notes.md`
+
+Then use:
+
+9. `13-references-and-validation.md` only when source / validation / methodology context is needed
+10. `world-model-full.md` only when full continuity or archival reading is necessary
 
 ---
 
@@ -28,36 +49,35 @@ It now includes both:
 
 ---
 
-## How to use this directory
+## Human Reading Guide
 
-### If you are reading as a human
+### If you are new to the model
 Start with:
 - `01-model-positioning.md`
 - `02-core-principles.md`
 - `03-core-concepts.md`
 
-Then continue into:
-- stages
-- diagnosis
-- intervention
-- boundaries
+### If you want to use the model operationally
+Continue with:
+- `04-evolution-stages.md`
+- `05-diagnostic-framework.md`
+- `06-intervention-rules.md`
 
-Use `world-model-full.md` if you want the complete long-form version in one file.
+### If you want model boundaries
+Read:
+- `07-boundaries-and-warnings.md`
 
-Use `13-references-and-validation.md` if you want:
-- source references
-- theory dialogue
-- methodology notes
-- validation summaries
+### If you want supplemental notes
+Read:
+- `08-extended-notes.md`
 
-### If you are using this as a skill reference layer
-Prefer the split files for:
-- navigation
-- targeted retrieval
-- easier maintenance
-- section-based updates
+### If you want the original long-form continuity
+Read:
+- `world-model-full.md`
 
-Use `world-model-full.md` as the archival and full-context version.
+### If you want sources, theory dialogue, and validation summaries
+Read:
+- `13-references-and-validation.md`
 
 ---
 
@@ -70,7 +90,7 @@ Use `world-model-full.md` as the archival and full-context version.
   What the model is, what it is for, what it is not for.
 
 - `02-core-principles.md`  
-  Working principles, discipline rules, anti-weaponization posture.
+  Working principles, discipline rules, and anti-weaponization posture.
 
 - `03-core-concepts.md`  
   Core structural concepts such as anchor, role, support chain, disturbance, drift, entropy, and intervention priority.
