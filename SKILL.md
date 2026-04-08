@@ -235,11 +235,14 @@ Do:
 
 ## Extended Reference
 
-For the long-form framework, see:
+For quick reference, see:
 
 - `resources/core-concepts.md`
 - `resources/guardrails.md`
 - `resources/world-model/00-index.md`
+
+For section-based long-form reading, use:
+
 - `resources/world-model/01-model-positioning.md`
 - `resources/world-model/02-core-principles.md`
 - `resources/world-model/03-core-concepts.md`
@@ -248,6 +251,14 @@ For the long-form framework, see:
 - `resources/world-model/06-intervention-rules.md`
 - `resources/world-model/07-boundaries-and-warnings.md`
 - `resources/world-model/08-extended-notes.md`
+
+For the complete single-file version, use:
+
+- `resources/world-model/world-model-full.md`
+
+For references, validation, and methodology notes, use:
+
+- `resources/world-model/13-references-and-validation.md`
 
 ---
 
