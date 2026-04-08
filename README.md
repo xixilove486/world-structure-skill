@@ -75,9 +75,14 @@
 world-structure-skill/
 ├── README.md
 ├── SKILL.md
+├── LICENSE
 ├── CONTRIBUTING.md
 ├── ROADMAP.md
+├── FINAL_CHECKLIST.md
+├── TAGLINE_OPTIONS.md
+├── MOBILE_UPLOAD_STEPS.md
 ├── REPO_DESCRIPTION.txt
+├── TOPICS.txt
 ├── resources/
 │   ├── core-concepts.md
 │   ├── guardrails.md
@@ -90,7 +95,9 @@ world-structure-skill/
 │       ├── 05-diagnostic-framework.md
 │       ├── 06-intervention-rules.md
 │       ├── 07-boundaries-and-warnings.md
-│       └── 08-extended-notes.md
+│       ├── 08-extended-notes.md
+│       ├── 13-references-and-validation.md
+│       └── world-model-full.md
 ├── templates/
 │   ├── analysis-template.md
 │   └── quick-diagnosis-template.md
@@ -116,7 +123,42 @@ world-structure-skill/
 再按需深入：
 - `resources/core-concepts.md`
 - `resources/guardrails.md`
+- `resources/world-model/00-index.md`
+
+---
+
+## 长文参考层
+
+这个仓库现在同时包含两种长文结构：
+
+### 1. 拆分版
+放在：
 - `resources/world-model/`
+
+适合：
+- 导航阅读
+- 分段维护
+- 技能检索
+- 针对性更新
+
+### 2. 完整单文件版
+放在：
+- `resources/world-model/world-model-full.md`
+
+适合：
+- 一次性完整阅读
+- 存档
+- 保留原始长文连续性
+
+### 3. 参考与验证附录
+放在：
+- `resources/world-model/13-references-and-validation.md`
+
+适合查看：
+- 参考来源
+- 理论对话
+- 方法论说明
+- 全局验证状态摘要
 
 ---
 
@@ -158,24 +200,6 @@ world-structure-skill/
 2. **高成本信号优先于宣称**
 3. **约束优先于建议**
 4. **不确定性必须显式保留**
-
----
-
-## 长文参考层
-
-如果你想看完整的世界模型参考材料，请进入：
-
-- `resources/world-model/00-index.md`
-
-从那里你可以继续读到：
-- 模型定位
-- 核心原则
-- 核心概念
-- 阶段逻辑
-- 诊断框架
-- 干预规则
-- 边界与警告
-- 延伸说明
 
 ---
 
