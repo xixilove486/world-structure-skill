@@ -1,21 +1,42 @@
 ---
 name: world-structure
-description: Analyze complex systems through anchors, constraints, roles, support chains, disturbance, entropy, and evolution stages. Use this skill when the user wants a structural diagnosis of a team, relationship, project, institution, or complex situation.
+description: Analyze why a team, relationship, project, institution, or complex situation is stuck, drifting, fragmenting, or losing coherence, and identify the core contradiction, main risk direction, and best repair priority. Use when the user wants structural diagnosis, hidden-pattern analysis, stage judgment, or intervention priority. Do not use for exact event prediction, clinical diagnosis, or professional legal/medical/financial advice.
 ---
 
 # World Structure
 
 Use this skill to analyze complex objects as **structures in motion**, not as collections of isolated events or personalities.
 
-This skill is designed for:
+This skill is for:
 - teams
 - relationships
 - projects
 - communities
 - institutions
 - creative groups
-- personal situations with recurring patterns
-- complex situations with hidden structure, repeated conflict, stagnation, drift, or breakdown
+- complex situations with recurring conflict, bottlenecks, hidden structure, drift, fragmentation, or loss of vitality
+
+---
+
+## Discovery Intent
+
+This skill should trigger when the user is effectively asking:
+
+- Why is this team always stuck?
+- What is structurally wrong with this relationship?
+- Why does this project keep losing momentum?
+- What stage is this organization in?
+- What is the hidden structure behind this conflict?
+- What should be repaired first?
+- What is really going on here beneath the surface?
+
+This skill should **not** trigger for:
+- exact future prediction
+- pure emotional reassurance without analysis
+- simple factual lookup
+- arithmetic or coding help unrelated to structural diagnosis
+- clinical or legal judgment
+- one-off problems that do not need structural analysis
 
 ---
 
@@ -30,41 +51,6 @@ When this skill is active, do five things in order:
 5. output a structural diagnosis with priorities and uncertainty
 
 Do not jump straight to blame, personality judgment, or surface advice.
-
----
-
-## When to Use
-
-Use this skill when the user asks questions like:
-
-- “Why is this team always stuck?”
-- “What is structurally wrong with this relationship?”
-- “Why does this project keep losing momentum?”
-- “What is the core contradiction in this organization?”
-- “Can you analyze this situation more deeply?”
-- “What stage is this system in?”
-- “What should be repaired first?”
-
-Use it especially when:
-- the problem is recurring rather than one-off
-- the situation involves multiple actors or layers
-- the user wants diagnosis, hidden structure, or risk direction
-- the system seems to be drifting, fragmenting, calcifying, or exhausting itself
-
----
-
-## Do Not Use
-
-Do not use this skill to:
-
-- predict exact future events
-- replace legal, medical, or financial expertise
-- diagnose clinical mental illness
-- declare someone’s “true nature” with weak evidence
-- weaponize terms like “disturbance”, “collapse”, or “bad actor”
-- turn structural language into personal attacks
-
-If evidence is thin, say so clearly.
 
 ---
 
@@ -96,15 +82,11 @@ Ask:
 - Is the user describing one system or several mixed together?
 - What time scale matters here?
 
----
-
 ## Step 1: Identify the anchor
 Ask:
 - What is this system trying to preserve, achieve, or orbit around?
 - Is the anchor explicit, implicit, split, hollow, or replaced?
 - Do actions still match the stated anchor?
-
----
 
 ## Step 2: Identify the constraints
 Look for:
@@ -117,8 +99,6 @@ Look for:
 - external pressure
 - brittle incentives
 
----
-
 ## Step 3: Map layers and roles
 Ask:
 - Who sustains continuity?
@@ -127,8 +107,6 @@ Ask:
 - Who absorbs cost?
 - Who holds memory?
 - Who blocks or extracts?
-
----
 
 ## Step 4: Examine support chains
 Ask:
@@ -147,8 +125,6 @@ Support chains may include:
 - replacement pathways
 - renewal pathways
 
----
-
 ## Step 5: Identify disturbance, drift, and entropy
 Look for:
 - repeated disturbance
@@ -163,8 +139,6 @@ Look for:
 
 Do not automatically personify disturbance.
 
----
-
 ## Step 6: Determine the stage
 Use approximate stage logic:
 
@@ -176,8 +150,6 @@ Use approximate stage logic:
 6. rigidity
 7. fragmentation
 8. renewal attempt
-
----
 
 ## Step 7: Produce the diagnosis
 Always output using this structure:
@@ -196,6 +168,47 @@ What should be repaired first, and why that before everything else?
 
 ### Uncertainty / Alternative Readings
 What do we still not know? What else could explain the pattern?
+
+---
+
+## Reference Loading Rule
+
+Use the split files under `resources/world-model/` by default.
+
+### Default working set
+Start with:
+- `resources/world-model/00-index.md`
+- `resources/world-model/01-model-positioning.md`
+- `resources/world-model/02-core-principles.md`
+- `resources/world-model/03-core-concepts.md`
+- `resources/world-model/04-evolution-stages.md`
+- `resources/world-model/05-diagnostic-framework.md`
+- `resources/world-model/06-intervention-rules.md`
+- `resources/world-model/07-boundaries-and-warnings.md`
+- `resources/world-model/08-extended-notes.md`
+
+### Use references only when needed
+Use `resources/world-model/13-references-and-validation.md` when the user asks for:
+- sources
+- theory dialogue
+- methodology notes
+- validation status
+- where these ideas came from
+
+### Use the full file only when necessary
+Use `resources/world-model/world-model-full.md` only when:
+- full-context reading is necessary
+- the request spans multiple sections
+- the original long-form continuity matters
+- the split files are insufficient
+- the user explicitly asks for the full version
+
+Default priority:
+1. `00-index.md` + `01-08`
+2. `13-references-and-validation.md`
+3. `world-model-full.md`
+
+This keeps the skill lightweight by default and preserves the full file as an archival / deep-context fallback.
 
 ---
 
@@ -230,35 +243,6 @@ Do:
 - distinguish local failure from systemic failure
 - prefer repair priorities over grand abstraction
 - name when evidence is insufficient
-
----
-
-## Extended Reference
-
-For quick reference, see:
-
-- `resources/core-concepts.md`
-- `resources/guardrails.md`
-- `resources/world-model/00-index.md`
-
-For section-based long-form reading, use:
-
-- `resources/world-model/01-model-positioning.md`
-- `resources/world-model/02-core-principles.md`
-- `resources/world-model/03-core-concepts.md`
-- `resources/world-model/04-evolution-stages.md`
-- `resources/world-model/05-diagnostic-framework.md`
-- `resources/world-model/06-intervention-rules.md`
-- `resources/world-model/07-boundaries-and-warnings.md`
-- `resources/world-model/08-extended-notes.md`
-
-For the complete single-file version, use:
-
-- `resources/world-model/world-model-full.md`
-
-For references, validation, and methodology notes, use:
-
-- `resources/world-model/13-references-and-validation.md`
 
 ---
 
