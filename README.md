@@ -72,6 +72,75 @@
 
 ---
 
+## Install
+
+This skill can be installed either:
+
+- per-user: available across your repos
+- per-repo: shared inside one project
+
+Codex-style skill loaders typically discover skills from standard skill folders and load them progressively, so the full long-form reference is only read when the skill is actually used.
+
+### Per-user install
+
+#### macOS / Linux
+```bash
+mkdir -p "$HOME/.agents/skills" && \
+(test -d "$HOME/.agents/skills/world-structure-skill/.git" && \
+git -C "$HOME/.agents/skills/world-structure-skill" pull --ff-only || \
+git clone https://github.com/xixilove486/world-structure-skill.git "$HOME/.agents/skills/world-structure-skill")
+```
+
+#### Windows PowerShell
+```powershell
+New-Item -ItemType Directory -Force "$HOME/.agents/skills" | Out-Null
+if (Test-Path "$HOME/.agents/skills/world-structure-skill/.git") {
+  git -C "$HOME/.agents/skills/world-structure-skill" pull --ff-only
+} else {
+  git clone https://github.com/xixilove486/world-structure-skill.git "$HOME/.agents/skills/world-structure-skill"
+}
+```
+
+### Per-repo install
+
+#### macOS / Linux
+```bash
+mkdir -p .agents/skills && \
+(test -d .agents/skills/world-structure-skill/.git && \
+git -C .agents/skills/world-structure-skill pull --ff-only || \
+git clone https://github.com/xixilove486/world-structure-skill.git .agents/skills/world-structure-skill)
+```
+
+#### Windows PowerShell
+```powershell
+New-Item -ItemType Directory -Force ".agents/skills" | Out-Null
+if (Test-Path ".agents/skills/world-structure-skill/.git") {
+  git -C ".agents/skills/world-structure-skill" pull --ff-only
+} else {
+  git clone https://github.com/xixilove486/world-structure-skill.git ".agents/skills/world-structure-skill"
+}
+```
+
+### Update
+
+#### macOS / Linux
+```bash
+git -C "$HOME/.agents/skills/world-structure-skill" pull --ff-only
+```
+
+#### Windows PowerShell
+```powershell
+git -C "$HOME/.agents/skills/world-structure-skill" pull --ff-only
+```
+
+### Notes
+
+- Use the **per-user** install if you want this skill in all your projects.
+- Use the **per-repo** install if you want to share it with a team inside one repository.
+- The skill is designed for progressive loading: metadata first, full instructions only when needed.
+
+---
+
 ## 它不做什么？
 
 > [!WARNING]
@@ -117,7 +186,6 @@
 5. `resources/world-model/00-index.md`
 
 ---
-
 ## 仓库结构
 
 ```text
