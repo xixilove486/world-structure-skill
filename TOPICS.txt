@@ -1,0 +1,10 @@
+world-structure
+agent-skill
+ai-skill
+structural-analysis
+systems-thinking
+diagnostic-framework
+complex-systems
+organizational-analysis
+relationship-analysis
+project-analysis
