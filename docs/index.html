@@ -3,310 +3,990 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>世界模型 | 给 AI 和人类共同使用的结构地图</title>
-  <meta name="description" content="世界模型是一种给 AI 和人类共同使用的结构地图，用来理解复杂系统如何形成、维持、失衡、漂移与更新。" />
+  <title>世界模型 | 一页会发光的结构手记</title>
+  <meta name="description" content="world-structure-skill 是一套用于分析团队、关系、项目、组织与公共议题中复杂失衡问题的结构化诊断工具。这一次，它被放进一册更温柔、更有记忆感的介绍页里。" />
   <style>
-    :root{
-      --paper:#efe6d3;
-      --paper-deep:#dccfb6;
-      --ink:#1b140f;
-      --muted:#5b4b3f;
-      --red:#7c1f1f;
-      --red-deep:#541010;
-      --gold:#9c7440;
-      --line:rgba(44,29,20,.18);
-      --panel:rgba(255,250,242,.78);
-      --shadow:0 20px 60px rgba(41,26,18,.18);
-      --max:1180px;
-      --radius:26px;
+    :root {
+      --sky: #dff4ff;
+      --mist: #eef8ff;
+      --milk: #fffaf7;
+      --paper: rgba(255, 251, 247, 0.76);
+      --paper-strong: rgba(255, 255, 255, 0.9);
+      --petal: #ffd6ea;
+      --petal-deep: #f6b9d5;
+      --lilac: #ddd3ff;
+      --blue: #bfe7ff;
+      --aqua: #92ddff;
+      --gold: #eed4a2;
+      --silver: #f2f7ff;
+      --ink: #5f5873;
+      --ink-soft: #847b98;
+      --rose-ink: #b77898;
+      --line: rgba(191, 197, 228, 0.62);
+      --shadow: 0 26px 90px rgba(172, 163, 208, 0.24);
+      --shadow-soft: 0 14px 44px rgba(189, 196, 234, 0.22);
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 20px;
+      --max: 1240px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font:16px/1.8 "Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;
-      color:var(--ink);
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font: 16px/1.85 "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", serif;
       background:
-        radial-gradient(circle at top left, rgba(124,31,31,.14), transparent 28%),
-        radial-gradient(circle at 85% 12%, rgba(156,116,64,.16), transparent 24%),
-        linear-gradient(180deg, rgba(255,248,238,.96), rgba(235,224,204,.98)),
-        var(--paper);
+        radial-gradient(circle at 12% 10%, rgba(255, 211, 232, 0.78), transparent 25%),
+        radial-gradient(circle at 88% 8%, rgba(183, 236, 255, 0.82), transparent 24%),
+        radial-gradient(circle at 78% 62%, rgba(233, 216, 255, 0.62), transparent 22%),
+        radial-gradient(circle at 14% 72%, rgba(255, 228, 240, 0.68), transparent 20%),
+        linear-gradient(180deg, #fdfcff 0%, #f8fcff 30%, #fff8fb 60%, #f8fbff 100%);
+      overflow-x: hidden;
+      position: relative;
     }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
-    .nav{
-      position:sticky;top:0;z-index:20;
-      backdrop-filter:blur(12px);
-      background:rgba(239,230,211,.84);
-      border-bottom:1px solid var(--line);
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
     }
-    .nav-inner{
-      max-width:var(--max);margin:0 auto;padding:14px 22px;
-      display:flex;justify-content:space-between;align-items:center;gap:20px;
+
+    body::before {
+      background:
+        radial-gradient(circle at 30% 22%, rgba(255,255,255,0.75), transparent 0 14%),
+        radial-gradient(circle at 72% 28%, rgba(255,255,255,0.55), transparent 0 11%),
+        radial-gradient(circle at 55% 76%, rgba(255,255,255,0.5), transparent 0 9%);
+      mix-blend-mode: screen;
+      animation: glimmer 12s ease-in-out infinite alternate;
     }
-    .brand{font-weight:800;letter-spacing:.08em;font-size:15px}
-    .nav-links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
-    .hero{padding:48px 0 24px}
-    .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:22px}
-    .card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
+
+    body::after {
+      background:
+        radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.68) 0 2px, transparent 2px),
+        radial-gradient(circle at 62% 14%, rgba(255, 255, 255, 0.68) 0 1.8px, transparent 1.8px),
+        radial-gradient(circle at 86% 58%, rgba(255, 255, 255, 0.56) 0 1.6px, transparent 1.6px),
+        radial-gradient(circle at 34% 84%, rgba(255, 255, 255, 0.56) 0 1.8px, transparent 1.8px);
+      opacity: 0.7;
+      animation: drift 18s linear infinite;
     }
-    .hero-main{padding:38px}
-    .eyebrow{
-      display:inline-flex;align-items:center;
-      padding:8px 14px;border-radius:999px;
-      background:rgba(124,31,31,.08);
-      border:1px solid rgba(124,31,31,.14);
-      color:var(--red);font-size:13px;font-weight:700;letter-spacing:.08em;
+
+    a { color: inherit; text-decoration: none; }
+    p { margin: 0; }
+    h1, h2, h3, h4 { margin: 0; font-weight: 700; }
+
+    .petal-field {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
     }
-    h1{
-      margin:18px 0 12px;
-      font-size:clamp(38px,6vw,74px);
-      line-height:1.02;letter-spacing:-.04em;
-      max-width:11ch;
+
+    .petal {
+      position: absolute;
+      top: -12%;
+      width: 16px;
+      height: 26px;
+      border-radius: 14px 14px 14px 2px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,212,235,0.85) 36%, rgba(221,198,255,0.7));
+      box-shadow: 0 10px 18px rgba(255, 199, 227, 0.24);
+      transform: rotate(14deg);
+      opacity: 0.7;
+      animation: petal-fall linear infinite;
+      filter: blur(0.2px);
     }
-    .subline{margin:0;font-size:clamp(19px,2.3vw,28px);font-weight:700;color:var(--red-deep)}
-    .lede{margin:20px 0 0;max-width:39em;color:var(--muted);font-size:17px}
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:13px 18px;border-radius:16px;border:1px solid var(--line);font-weight:700
+
+    .petal:nth-child(1) { left: 8%; animation-duration: 16s; animation-delay: -4s; }
+    .petal:nth-child(2) { left: 19%; width: 14px; height: 22px; animation-duration: 20s; animation-delay: -9s; }
+    .petal:nth-child(3) { left: 34%; width: 20px; height: 30px; animation-duration: 18s; animation-delay: -3s; }
+    .petal:nth-child(4) { left: 52%; animation-duration: 22s; animation-delay: -7s; }
+    .petal:nth-child(5) { left: 67%; width: 18px; height: 24px; animation-duration: 17s; animation-delay: -12s; }
+    .petal:nth-child(6) { left: 82%; width: 13px; height: 20px; animation-duration: 21s; animation-delay: -5s; }
+    .petal:nth-child(7) { left: 92%; animation-duration: 19s; animation-delay: -10s; }
+
+    .shell {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 22px 80px;
     }
-    .btn.primary{background:linear-gradient(135deg,var(--red),var(--red-deep));color:#fff;border-color:transparent}
-    .btn.secondary{background:rgba(255,255,255,.45)}
-    .hero-side{padding:24px;display:grid;gap:14px}
-    .mini{padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.42)}
-    .mini h3{margin:0 0 8px;font-size:18px}
-    .mini p{margin:0;color:var(--muted);font-size:14px}
-    .quote{padding:22px 24px;background:linear-gradient(180deg, rgba(124,31,31,.06), rgba(255,255,255,.55));border:1px solid var(--line);border-radius:18px}
-    .quote strong{display:block;font-size:21px;line-height:1.5}
-    .quote small{display:block;margin-top:10px;color:var(--muted);font-size:14px}
-    .section{padding:26px 0}
-    .kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:10px}
-    .section h2{margin:0 0 14px;font-size:clamp(25px,3vw,40px);line-height:1.1;letter-spacing:-.02em}
-    .lead{margin:0;max-width:44em;color:var(--muted)}
-    .grid-2,.grid-3{display:grid;gap:18px;margin-top:22px}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .panel{padding:24px}
-    .panel h3{margin:0 0 10px;font-size:20px}
-    .panel p{margin:0;color:var(--muted)}
-    .panel ul{margin:12px 0 0 18px;padding:0;color:var(--muted)}
-    .statement{padding:28px 30px;font-size:clamp(18px,2vw,26px);line-height:1.7}
-    .statement small{display:block;margin-top:14px;font-size:14px;color:var(--muted);line-height:1.8}
-    .axis{padding:20px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.42)}
-    .axis h3{margin:0 0 8px;font-size:19px}
-    .axis p{margin:0;color:var(--muted);font-size:14px}
-    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-    .chip{padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:rgba(124,31,31,.05);font-size:12px;color:var(--red-deep)}
-    .footer{padding:38px 0 56px;color:var(--muted);font-size:14px}
-    @media (max-width:980px){
-      .hero-grid,.grid-2,.grid-3{grid-template-columns:1fr}
-      .nav-links{display:none}
-      .hero-main,.hero-side,.panel,.statement{padding:24px}
-      .hero{padding-top:32px}
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 12;
+      margin: 14px auto 0;
+      padding-top: 14px;
     }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.56);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 34px rgba(201, 206, 237, 0.22);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-bloom {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 32%, rgba(255,255,255,0.95), transparent 0 34%),
+        radial-gradient(circle at 68% 68%, rgba(255,222,240,0.98), rgba(204,235,255,0.9) 72%, rgba(221,203,255,0.8));
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: 0 8px 18px rgba(183, 210, 246, 0.25);
+      position: relative;
+    }
+
+    .brand-bloom::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255,255,255,0.85);
+    }
+
+    .brand-text { min-width: 0; }
+    .brand-text strong { display: block; font-size: 15px; letter-spacing: 0.08em; }
+    .brand-text small { display: block; margin-top: 2px; color: var(--ink-soft); font-size: 12px; letter-spacing: 0.04em; }
+
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; color: var(--ink-soft); font-size: 13px; }
+    .nav-links a { padding: 8px 13px; border-radius: 999px; background: rgba(255,255,255,0.42); border: 1px solid transparent; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease; }
+    .nav-links a:hover { transform: translateY(-1px); background: rgba(255,255,255,0.78); border-color: rgba(214, 218, 244, 0.9); box-shadow: 0 8px 18px rgba(196, 201, 234, 0.16); }
+
+    .hero { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 26px; padding-top: 34px; align-items: stretch; }
+    .page, .note, .panel, .polaroid, .soul-panel, .ideal-panel, .cta-panel { position: relative; border-radius: var(--radius-xl); background: var(--paper); border: 1px solid rgba(255,255,255,0.85); box-shadow: var(--shadow); backdrop-filter: blur(14px); overflow: hidden; animation: rise .9s ease both; }
+    .page::before, .panel::before, .ideal-panel::before, .cta-panel::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.46), transparent 28%), repeating-linear-gradient(180deg, transparent 0 36px, rgba(221, 228, 246, 0.12) 36px 37px); pointer-events: none; }
+    .page::after, .panel::after, .ideal-panel::after, .cta-panel::after { content: ""; position: absolute; left: 18px; top: 24px; bottom: 24px; width: 12px; background: radial-gradient(circle, rgba(205,214,246,0.75) 0 3px, transparent 3.2px) center / 12px 34px repeat-y; opacity: 0.72; pointer-events: none; }
+    .page-inner, .panel-inner, .ideal-inner, .cta-inner { position: relative; z-index: 1; padding: 38px 42px 38px 56px; }
+    .tape, .tape-right { position: absolute; top: 18px; width: 110px; height: 24px; border-radius: 10px; background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(230,243,255,0.46)); border: 1px solid rgba(255,255,255,0.88); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.55); opacity: 0.84; transform: rotate(-5deg); z-index: 2; }
+    .tape { left: 42px; }
+    .tape-right { right: 40px; transform: rotate(6deg); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; background: rgba(255,255,255,0.72); border: 1px solid rgba(214, 223, 248, 0.9); color: var(--rose-ink); box-shadow: 0 10px 22px rgba(225, 208, 239, 0.18); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .eyebrow-dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,204,232,0.9)); box-shadow: 0 0 0 5px rgba(255, 216, 236, 0.2); }
+    .hero h1 { margin-top: 22px; font-size: clamp(42px, 6vw, 78px); line-height: 1.04; letter-spacing: -0.04em; color: #5a5572; max-width: 8.3ch; }
+    .hero-subline { margin-top: 18px; font-size: clamp(20px, 2.1vw, 28px); line-height: 1.45; color: #8d7ea3; max-width: 22ch; }
+    .hero-body { margin-top: 20px; max-width: 39em; color: var(--ink-soft); font-size: 17px; }
+    .hero-body + .hero-body { margin-top: 14px; }
+    .memory-line { margin-top: 26px; padding: 18px 20px 18px 24px; border-radius: 22px; background: linear-gradient(135deg, rgba(255, 247, 251, 0.96), rgba(232, 246, 255, 0.88)); border: 1px solid rgba(222, 228, 250, 0.95); box-shadow: var(--shadow-soft); }
+    .memory-line strong { display: block; font-size: 21px; line-height: 1.6; color: #7d6a95; }
+    .memory-line small { display: block; margin-top: 8px; color: var(--ink-soft); font-size: 14px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-width: 150px; padding: 14px 22px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.96); font-size: 15px; font-weight: 700; letter-spacing: 0.04em; transition: transform .28s ease, box-shadow .28s ease, background .28s ease; position: relative; overflow: hidden; }
+    .button::after { content: ""; position: absolute; inset: 1px; border-radius: inherit; background: linear-gradient(120deg, rgba(255,255,255,0.78), rgba(255,255,255,0.18) 40%, transparent 55%); opacity: 0.68; pointer-events: none; }
+    .button.primary { color: #705f89; background: linear-gradient(135deg, rgba(255, 239, 247, 0.95), rgba(212, 241, 255, 0.9)); box-shadow: 0 18px 38px rgba(207, 216, 246, 0.3); }
+    .button.secondary { color: var(--ink-soft); background: rgba(255,255,255,0.64); box-shadow: 0 12px 24px rgba(207, 216, 246, 0.16); }
+    .button:hover { transform: translateY(-2px) scale(1.01); box-shadow: 0 22px 42px rgba(190, 205, 244, 0.32); }
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="brand">世界模型</div>
-      <div class="nav-links">
-        <a href="#what">这是什么</a>
-        <a href="#map">给谁的地图</a>
-        <a href="#axes">七个主轴</a>
-        <a href="#conclusion">重要结论</a>
-        <a href="#install">使用入口</a>
+  <style>
+    .hero-collage {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-content: start;
+      padding-top: 24px;
+    }
+
+    .polaroid,
+    .note {
+      padding: 18px;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(255,255,255,0.88);
+      box-shadow: var(--shadow-soft);
+      transform: rotate(-1.2deg);
+    }
+
+    .polaroid::before,
+    .note::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 22px;
+      border: 1px solid rgba(222, 228, 249, 0.82);
+      pointer-events: none;
+    }
+
+    .polaroid:nth-child(2) { transform: rotate(1.4deg); }
+    .note { transform: rotate(-0.5deg); }
+
+    .polaroid-image {
+      position: relative;
+      min-height: 184px;
+      border-radius: 24px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 26% 28%, rgba(255,255,255,0.98), transparent 0 20%),
+        linear-gradient(135deg, rgba(255,214,236,0.95), rgba(202,242,255,0.92) 48%, rgba(226,216,255,0.96));
+      border: 1px solid rgba(255,255,255,0.92);
+      box-shadow: inset 0 -18px 28px rgba(255,255,255,0.22);
+      padding: 18px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .polaroid-image::before {
+      content: "memory card";
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.74);
+      color: var(--rose-ink);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .polaroid-image::after {
+      content: "";
+      position: absolute;
+      right: 20px;
+      top: 18px;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255,255,255,0.72);
+      opacity: 0.7;
+    }
+
+    .petal-cluster {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      top: 24px;
+      bottom: 20px;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 66%, rgba(255,255,255,0.62) 0 2px, transparent 2.2px),
+        radial-gradient(circle at 72% 28%, rgba(255,255,255,0.6) 0 2px, transparent 2.2px),
+        radial-gradient(circle at 58% 74%, rgba(255,218,236,0.7) 0 12px, transparent 12px),
+        radial-gradient(circle at 24% 32%, rgba(216,240,255,0.72) 0 16px, transparent 16px),
+        radial-gradient(circle at 82% 68%, rgba(226,212,255,0.68) 0 14px, transparent 14px);
+      opacity: 0.9;
+    }
+
+    .polaroid-body,
+    .note-body { position: relative; z-index: 1; margin-top: 16px; }
+    .mini-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.84);
+      color: var(--rose-ink);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+    }
+    .mini-label::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #fff, #ffcde1);
+      box-shadow: 0 0 0 4px rgba(255, 226, 238, 0.22);
+    }
+
+    .polaroid h3,
+    .note h3,
+    .panel h2,
+    .ideal-panel h2,
+    .cta-panel h2 {
+      margin-top: 12px;
+      font-size: clamp(26px, 3.4vw, 42px);
+      line-height: 1.25;
+      color: #625c7a;
+    }
+
+    .polaroid p,
+    .note p,
+    .panel p,
+    .ideal-panel p,
+    .cta-panel p { color: var(--ink-soft); }
+
+    .tag-list,
+    .spark-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag-list span,
+    .spark-list span,
+    .stack-list li,
+    .install-card li {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(226, 231, 247, 0.92);
+      box-shadow: 0 10px 22px rgba(206, 214, 239, 0.16);
+      font-size: 13px;
+      color: #7f7597;
+      list-style: none;
+    }
+
+    .stack-list {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0 0;
+      padding: 0;
+    }
+
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 34px;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.78);
+      color: var(--rose-ink);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(223, 229, 247, 0.9);
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #fff, #d4ebff);
+    }
+
+    .panel-lead,
+    .ideal-lead,
+    .cta-lead { margin-top: 16px; font-size: 17px; }
+
+    .diagnosis-stack,
+    .output-grid,
+    .boundary-grid,
+    .install-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .diagnosis-stack { grid-template-columns: 1fr; }
+    .output-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .boundary-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .install-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .diagnosis-card,
+    .output-card,
+    .boundary-card,
+    .install-card,
+    .ideal-note {
+      position: relative;
+      padding: 18px 18px 18px 20px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(249,251,255,0.72));
+      border: 1px solid rgba(225, 230, 247, 0.95);
+      box-shadow: 0 16px 30px rgba(210, 217, 239, 0.18);
+      overflow: hidden;
+    }
+
+    .diagnosis-card::after,
+    .output-card::after,
+    .boundary-card::after,
+    .install-card::after,
+    .ideal-note::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -46px auto;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(214,239,255,0.38), transparent 66%);
+      pointer-events: none;
+    }
+
+    .diagnosis-card strong,
+    .boundary-card strong,
+    .install-card strong,
+    .ideal-note strong { display: block; font-size: 17px; color: #675f81; }
+    .diagnosis-card p,
+    .boundary-card p,
+    .install-card p,
+    .ideal-note p { margin-top: 8px; font-size: 14px; }
+
+    .postmark {
+      position: absolute;
+      right: 22px;
+      top: 18px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: rgba(183, 120, 152, 0.6);
+      text-transform: uppercase;
+    }
+  </style>
+  <div class="petal-field" aria-hidden="true">
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+  </div>
+
+  <div class="shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="#top">
+          <span class="brand-bloom" aria-hidden="true"></span>
+          <span class="brand-text">
+            <strong>world-structure-skill</strong>
+            <small>一页会发光的结构手记</small>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="页内导航">
+          <a href="#what">这是什么</a>
+          <a href="#outputs">通常输出什么</a>
+          <a href="#love">爱的边界</a>
+          <a href="#ideal">理想与现实</a>
+          <a href="#install">使用入口</a>
+        </nav>
       </div>
-    </div>
-  </nav>
+    </header>
 
-  <header class="hero wrap">
-    <div class="hero-grid">
-      <section class="card hero-main">
-        <div class="eyebrow">结构地图 / 世界观工具 / AI 与人类共用</div>
-        <h1>世界模型</h1>
-        <p class="subline">给 AI 和人类共同使用的结构地图。</p>
-        <p class="lede">
-          它不试图解释一切，而是试图帮助我们看清：一个系统如何形成，如何维持，
-          如何失衡，如何漂移，又如何在现实中更新、重建，或者崩解。
-        </p>
-        <p class="lede">
-          世界模型既不是情绪判断器，也不是宏大口号的堆积器。
-          它更像一种更成熟的结构意识，一种尽量不被表象欺骗的世界理解方式。
-        </p>
-        <div class="cta">
-          <a class="btn primary" href="#what">开始阅读</a>
-          <a class="btn secondary" href="https://github.com/xixilove486/world-structure-skill">前往 GitHub</a>
+    <section class="hero" id="top">
+      <article class="page">
+        <span class="tape" aria-hidden="true"></span>
+        <span class="tape-right" aria-hidden="true"></span>
+        <div class="page-inner">
+          <span class="eyebrow"><span class="eyebrow-dot"></span>complex diagnosis / memory notebook / gentle light</span>
+          <h1>给复杂失衡留下一页会发光的结构手记。</h1>
+          <p class="hero-subline">world-structure-skill 仍然是一套清楚、可靠、可执行的结构化诊断工具，只是这一次，它被放进了更柔和、更有记忆感的页面语言里。</p>
+          <p class="hero-body">它并不打算把现实压成冰冷表格，也不急着给复杂对象贴结论。它更关心的是，当一个团队、一段关系、一个项目、一个组织开始变形、漂移、失真时，我们能不能先把它重新读成结构。</p>
+          <p class="hero-body">于是锚点、约束、支持链、角色错位、阶段变化与干预优先级，被写成一张可以回头翻阅的纸页。它不是为了制造距离，而是为了让判断更诚实，让修复更可见。</p>
+          <div class="memory-line">
+            <strong>世界模型不是冰冷的结构论。它在尽量说清结构之后，仍然为爱留下边界。</strong>
+            <small>这份温柔不是软塌的退让，而是一种对复杂现实仍愿意保持诚实与光感的姿态。</small>
+          </div>
+          <div class="hero-actions">
+            <a class="button primary" href="#what">开始阅读</a>
+            <a class="button secondary" href="https://github.com/xixilove486/world-structure-skill" target="_blank" rel="noreferrer">查看 GitHub 仓库</a>
+          </div>
         </div>
-      </section>
-      <section class="card hero-side">
-        <div class="mini">
-          <h3>一句定位</h3>
-          <p>如果说有些工具只是给 AI 的地图，那么世界模型希望成为给 AI 和人类共同使用的地图。</p>
-        </div>
-        <div class="mini">
-          <h3>它关心什么</h3>
-          <p>锚点从哪里来，约束如何形成，角色怎样错位，支持链如何断裂，阶段为何变化，以及最该先修哪里。</p>
-        </div>
-        <div class="quote">
-          <strong>世界模型不是只教你怎么回答一个问题，<br>而是试图帮助你重新理解：世界是如何运转的。</strong>
-          <small>它既可以成为 skill，也希望逐步成为一种可被人类直接使用的结构性世界观。</small>
-        </div>
-      </section>
-    </div>
-  </header>
+      </article>
 
-  <main class="wrap">
-    <section class="section" id="what">
-      <div class="kicker">这是什么</div>
-      <h2>它不是零散观点，而是一张结构地图。</h2>
-      <p class="lead">
-        对 AI，它提供一种更稳定的系统理解方式。对人类，它帮助建立结构意识、系统判断力和更成熟的世界观。
-        它试图让我们不再只盯着症状、冲突、情绪和个体动机，而是开始真正看见系统靠什么维持、为什么会失衡、什么正在被耗尽，以及什么才值得优先修复。
-      </p>
-      <div class="grid-3">
-        <div class="panel card">
-          <h3>对 AI</h3>
-          <p>提供更稳的系统分析框架，让复杂问题不再只停留于表象归因。</p>
+      <aside class="hero-collage">
+        <article class="polaroid">
+          <div class="polaroid-image">
+            <div class="petal-cluster" aria-hidden="true"></div>
+          </div>
+          <div class="polaroid-body">
+            <span class="mini-label">适用对象</span>
+            <h3>它适合读哪些复杂问题</h3>
+            <div class="tag-list">
+              <span>团队</span>
+              <span>关系</span>
+              <span>项目</span>
+              <span>组织</span>
+              <span>公共议题</span>
+              <span>制度演化</span>
+            </div>
+            <p style="margin-top: 16px;">它面对的从来不是单个情绪点，而是那些已经开始失衡、漂移、僵化或断裂的系统。</p>
+          </div>
+        </article>
+
+        <article class="polaroid">
+          <div class="polaroid-body" style="margin-top: 0;">
+            <span class="mini-label">输出形态</span>
+            <h3>它通常交回来的，不只是建议</h3>
+            <ul class="stack-list">
+              <li>结构判断</li>
+              <li>核心矛盾</li>
+              <li>风险方向</li>
+              <li>干预优先级</li>
+              <li>不确定性说明</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="note">
+          <div class="note-body" style="margin-top: 0;">
+            <span class="mini-label">设计气质说明</span>
+            <h3>不是角色应援页，而是一份带着记忆涟漪感的工具说明页。</h3>
+            <p style="margin-top: 12px;">这里借来的不是官方 UI，而是温柔发光、纸页拼贴、花瓣和信笺、安静却不软塌的页面语言。工具的骨架还在，只是它被更温柔地看见了。</p>
+            <div class="spark-list">
+              <span>往昔的涟漪</span>
+              <span>记忆</span>
+              <span>花朵</span>
+              <span>诗篇</span>
+              <span>超越性的情感</span>
+            </div>
+          </div>
+        </article>
+      </aside>
+    </section>
+
+    <section class="sheet-grid" id="what">
+      <article class="panel">
+        <div class="panel-inner">
+          <span class="postmark">read me slowly</span>
+          <span class="section-kicker">这是什么</span>
+          <h2>它不是情绪判断器，而是一套把复杂对象重新读成结构的工具。</h2>
+          <p class="panel-lead">world-structure-skill 用来分析那些看起来很乱、很难说清、很容易只剩责备和直觉的对象。它把我们从表象、冲突和情绪里轻轻往后拉一步，重新去看支撑一个系统运转的骨架。</p>
+          <div class="diagnosis-stack">
+            <article class="diagnosis-card">
+              <strong>先退回结构</strong>
+              <p>不急着被症状和个体动机带走，而是先判断锚点、约束、支持链和角色关系究竟出了什么问题。</p>
+            </article>
+            <article class="diagnosis-card">
+              <strong>再识别演化</strong>
+              <p>同一个现象在形成期、拉扯期、僵化期、失稳期会呈现不同性质，所以它总要追问阶段和路径。</p>
+            </article>
+            <article class="diagnosis-card">
+              <strong>最后收紧优先级</strong>
+              <p>它想找出的不是一句漂亮评语，而是现阶段最该先修哪里，哪里只是伴生噪声，哪里还需要保留不确定性。</p>
+            </article>
+          </div>
         </div>
-        <div class="panel card">
-          <h3>对人类</h3>
-          <p>帮助建立结构意识、世界观与系统判断能力，而不是只获得一时的答案。</p>
+      </article>
+
+      <article class="panel" id="fit">
+        <div class="panel-inner">
+          <span class="postmark">fit for imbalance</span>
+          <span class="section-kicker">适合分析什么</span>
+          <h2>它更适合那些已经开始变形，却还没完全说清的问题。</h2>
+          <p class="panel-lead">如果一个对象还处在模糊期，情绪很多、解释很多、争执很多，但真正的结构判断还没有出现，那么这类问题通常适合交给它。</p>
+          <div class="diagnosis-stack">
+            <article class="diagnosis-card">
+              <strong>团队为什么越来越忙，却越来越推不动</strong>
+              <p>问题可能不在努力，而在锚点涣散、支持链断裂或干预顺序错位。</p>
+            </article>
+            <article class="diagnosis-card">
+              <strong>关系为什么没有直接崩，却越来越空</strong>
+              <p>它会去看约束、反馈、角色期待和维系机制，而不是只给情绪标签。</p>
+            </article>
+            <article class="diagnosis-card">
+              <strong>组织为什么从活力走向僵化</strong>
+              <p>它关心的不是单点失误，而是组织如何在历史过程中被异化、漂移或空心化。</p>
+            </article>
+            <article class="diagnosis-card">
+              <strong>公共议题为什么总在表面争吵</strong>
+              <p>很多争论都不是观点之争，而是系统诊断还没有真正开始。</p>
+            </article>
+          </div>
         </div>
-        <div class="panel card">
-          <h3>对复杂对象</h3>
-          <p>把团队、关系、项目、组织、制度与历史演化重新放回结构中理解。</p>
+      </article>
+    </section>
+    <section class="panel" id="outputs" style="margin-top: 34px;">
+      <div class="panel-inner">
+        <span class="postmark">usual outputs</span>
+        <span class="section-kicker">通常输出什么</span>
+        <h2>当你把一个复杂对象交给它，通常会收到这五类结果。</h2>
+        <p class="panel-lead">它给出的不是一句抽象判断，而是一组可以继续推进思考和干预的层次：先判断结构，再识别矛盾，再压缩风险，再收敛优先级，并诚实写下不确定性。</p>
+        <div class="output-grid">
+          <article class="output-card">
+            <span class="output-index">01</span>
+            <strong>结构判断</strong>
+            <p>系统主要靠什么维持，又是从哪里开始失衡。</p>
+          </article>
+          <article class="output-card">
+            <span class="output-index">02</span>
+            <strong>核心矛盾</strong>
+            <p>不是同时抓所有问题，而是抓住最牵动全局的冲突。</p>
+          </article>
+          <article class="output-card">
+            <span class="output-index">03</span>
+            <strong>主要风险方向</strong>
+            <p>哪些地方正在加速漂移、空转、断裂或异化。</p>
+          </article>
+          <article class="output-card">
+            <span class="output-index">04</span>
+            <strong>最优先干预点</strong>
+            <p>现阶段最值得先修的点，往往不是最显眼的点。</p>
+          </article>
+          <article class="output-card">
+            <span class="output-index">05</span>
+            <strong>不确定性说明</strong>
+            <p>哪里还缺证据、哪里仍需谨慎，这是它保留下来的诚实。</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="map">
-      <div class="kicker">为什么重要</div>
-      <h2>很多问题长期无解，不是因为没有答案，而是还没先把对象看成系统。</h2>
-      <div class="grid-2">
-        <div class="panel card">
-          <h3>我们常见的误判</h3>
-          <ul>
-            <li>把停滞误判成懒惰</li>
-            <li>把空心化误判成感情淡了</li>
-            <li>把组织僵化误判成执行力不够</li>
-            <li>把局部冲突误判成全部真相</li>
-          </ul>
-        </div>
-        <div class="panel card">
-          <h3>世界模型想提供的能力</h3>
-          <ul>
-            <li>在混乱中识别结构</li>
-            <li>在表象下识别真实问题</li>
-            <li>在失衡中识别最优先修复点</li>
-            <li>在宏大叙述中保留现实检验</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="axes">
-      <div class="kicker">七个主轴</div>
-      <h2>它默认从这七个方向观察系统。</h2>
-      <div class="grid-3">
-        <div class="axis"><h3>锚点</h3><p>系统围绕什么在维持、追求或漂移。</p></div>
-        <div class="axis"><h3>约束</h3><p>什么在限制它，什么让它不能继续承载。</p></div>
-        <div class="axis"><h3>角色与层级</h3><p>谁在维持，谁在推动，谁在连接，谁在阻塞。</p></div>
-        <div class="axis"><h3>支持链</h3><p>资源、信任、记忆、合法性与情感投入从哪里来。</p></div>
-        <div class="axis"><h3>扰动 / 漂移 / 熵增</h3><p>什么在让系统失真、漂移、僵化、分裂或空心化。</p></div>
-        <div class="axis"><h3>阶段</h3><p>它正处于形成、扩张、瓶颈、转型、稳定、僵化还是更新尝试。</p></div>
-        <div class="axis"><h3>干预优先级</h3><p>已经失衡之后，最该先修的到底是锚点、支持链、角色错位，还是现实约束。</p></div>
-      </div>
-      <div class="chips">
-        <span class="chip">团队</span>
-        <span class="chip">关系</span>
-        <span class="chip">项目</span>
-        <span class="chip">组织</span>
-        <span class="chip">制度</span>
-        <span class="chip">历史演化</span>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="kicker">这不是什么</div>
-      <h2>它首先是一种纪律，其次才是一种表达。</h2>
-      <div class="card statement">
-        世界模型不是解释万物的万能理论，不是对个体的本质审判，
-        不是法律、医疗、金融等专业判断的替代品，也不是用来攻击、羞辱或武器化他人的语言工具。
-        <small>
-          它要求我们在判断之前先看结构，在归因之前先看约束，在愤怒之前先看系统，
-          在给出答案之前先承认不确定性。
-        </small>
-      </div>
-    </section>
-
-    <section class="section" id="love">
-      <div class="kicker">关于“爱”的边界</div>
-      <h2>“爱”不是传统意义上的情感词，而是一个中性的、超越结构的概念。</h2>
-      <div class="card statement">
-        在世界模型里，“爱”不被当作一种随手可用的抒情解释，也不被简单理解为亲密、善意、温情或浪漫。
-        它更像一个带有超越性的中性概念，用来标记那些无法被结构逻辑、角色分工、心理机制与现实约束完全压平的行动余量。
-        <small>
-          这意味着：能被结构解释的，先不要急着归因于爱；能被心理机制解释的，也不要急着归因于爱。
-          只有当结构解释与心理解释都已经尽量完成，仍然剩下无法被还原的部分时，
-          世界模型才谨慎为“爱”保留位置。它不是逃避分析的词，而是理论解释边界被触及时留下的标记。
-        </small>
-      </div>
-    </section>
-
-    <section class="section" id="ideal">
-      <div class="kicker">理想与现实</div>
-      <h2>世界模型不是对理想的否定，而是对理想实现条件的严厉审计。</h2>
-      <div class="card statement">
-        本模型不预设任何宏大理想必然失败，也不预设任何终极目标会自动实现。
-        它关心的是：任何理想一旦进入现实组织与历史过程，都会遭遇异化、熵增、锚点漂移与反馈失真。
-        <small>
-          模型的任务不是取消理想，而是帮助识别理想如何在现实中被损耗、篡改，或在什么条件下被保存。
-          如果一个理想不能承受对其现实实现机制的分析，那么威胁它的不是模型，而是它自身的脆弱。
-          世界模型因此不应被表述为对理想的讥讽或撤退，而应被理解为一种对实现路径、组织条件与历史代价的严厉审计。
-        </small>
-      </div>
-    </section>
-
-    <section class="section" id="conclusion">
-      <div class="kicker">一个重要结论</div>
-      <h2>“为人民服务”不是这个模型的全部，但很可能是它识别出的最高结构结论之一。</h2>
-      <div class="card statement">
-        世界模型并不把“为人民服务”当成一句单纯的宣传口号来使用。
-        它更倾向于把它看成：人类历史上已经被验证过的、最深刻的结构设计之一。
-        <small>
-          当一个系统真正把人民作为锚点，它的合法性、反馈、支持链、更新能力与组织连续性，
-          都会呈现出不同的质量。因此，“为人民服务”不是世界模型的全部，
-          却很可能是世界模型在现实历史中所识别出的最高结构结论之一。
-        </small>
-      </div>
-    </section>
-
-    <section class="section" id="install">
-      <div class="kicker">使用入口</div>
-      <h2>它既是一种世界观，也已经整理成可安装的 skill。</h2>
-      <div class="grid-2">
-        <div class="panel card">
-          <h3>作品阅读入口</h3>
-          <p>优先阅读 GitHub 仓库主页与 `skills/world-structure/` 目录下的内容，理解方法骨架与长文参考层。</p>
-        </div>
-        <div class="panel card">
-          <h3>Codex 安装入口</h3>
-          <p>当前可通过 GitHub 子路径 `skills/world-structure` 直接安装，作为结构分析 skill 使用。</p>
+    <section class="panel" style="margin-top: 34px;">
+      <div class="panel-inner">
+        <span class="postmark">boundary notes</span>
+        <span class="section-kicker">它不是什么</span>
+        <h2>再温柔的页面，也不该让工具失去边界。</h2>
+        <p class="panel-lead">world-structure-skill 的工作是帮助我们更认真地看系统，而不是替代现实复杂性，也不是把人粗暴地压扁成标签。它越有气质，就越需要把边界说清。</p>
+        <div class="boundary-grid">
+          <article class="boundary-card">
+            <strong>不是人格判断器</strong>
+            <p>它分析的是结构关系与演化条件，不是给人盖章定性。</p>
+          </article>
+          <article class="boundary-card">
+            <strong>不是世界真理机</strong>
+            <p>它会输出判断，也会保留未知，不假装自己拥有终极答案。</p>
+          </article>
+          <article class="boundary-card">
+            <strong>不是贴标签工具</strong>
+            <p>它不是用来简化他人的，而是用来增加对复杂性的承担。</p>
+          </article>
+          <article class="boundary-card">
+            <strong>不是纯结构决定论</strong>
+            <p>它重视结构，但不会粗暴抹掉心理、历史、偶然与超越性因素。</p>
+          </article>
         </div>
       </div>
-      <div class="cta" style="margin-top:20px;">
-        <a class="btn primary" href="https://github.com/xixilove486/world-structure-skill">查看仓库</a>
+    </section>
+
+    <section class="soul-section" id="love">
+      <article class="soul-panel">
+        <div class="soul-grid">
+          <div>
+            <span class="soul-mark">全页灵魂句 / boundary of love</span>
+            <h2 class="soul-title">爱不是用来替代理论解释的，而是用来标记理论解释的边界。</h2>
+          </div>
+          <div>
+            <p class="soul-quote"><strong>当结构已经尽量说清一切之后，仍然剩下的那一部分，才被谨慎地留给爱。</strong></p>
+            <p class="soul-small">在这个模型里，“爱”不是传统意义上的甜蜜情绪，也不是抒情性的万能解释。它是一个中性的、具有超越性的概念，用来标记那些无法被结构逻辑、角色分工、心理机制与现实约束完全压平的行动余量。</p>
+            <div class="love-note">
+              <strong>为什么这一块必须被保留</strong>
+              <p>因为世界模型不是为了把世界压缩成一套干硬概念。它先尽量完成结构解释，再尽量完成心理解释。</p>
+              <p>只有在两者都已经做到仍不能完全覆盖时，才为“爱”保留位置。它不是偷懒的词，而是理论边界被触及时留下的记号。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+    <style>
+      .output-card {
+        min-height: 168px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .output-index {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(255, 233, 245, 0.96), rgba(214, 242, 255, 0.92));
+        border: 1px solid rgba(255,255,255,0.94);
+        color: #896b9a;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        box-shadow: 0 10px 18px rgba(206, 214, 239, 0.16);
+      }
+
+      .output-card strong { display: block; font-size: 17px; color: #675f81; }
+      .output-card p { font-size: 14px; }
+
+      .soul-section {
+        margin-top: 34px;
+        padding: 8px 0;
+      }
+
+      .soul-panel {
+        padding: 34px;
+        background:
+          radial-gradient(circle at 18% 18%, rgba(255, 238, 246, 0.92), transparent 0 36%),
+          radial-gradient(circle at 82% 26%, rgba(215, 242, 255, 0.92), transparent 0 32%),
+          radial-gradient(circle at 74% 74%, rgba(226, 214, 255, 0.76), transparent 0 24%),
+          linear-gradient(135deg, rgba(255, 251, 253, 0.95), rgba(245, 251, 255, 0.88));
+      }
+
+      .soul-panel::before {
+        content: "";
+        position: absolute;
+        inset: 16px;
+        border-radius: calc(var(--radius-xl) - 8px);
+        border: 1px solid rgba(255,255,255,0.88);
+        pointer-events: none;
+      }
+
+      .soul-panel::after {
+        content: "";
+        position: absolute;
+        inset: 28px;
+        border-radius: calc(var(--radius-xl) - 14px);
+        border: 1px dashed rgba(226, 207, 237, 0.64);
+        pointer-events: none;
+      }
+
+      .soul-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 26px;
+        align-items: center;
+      }
+
+      .soul-mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 14px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.78);
+        border: 1px solid rgba(232, 224, 246, 0.92);
+        color: var(--rose-ink);
+        letter-spacing: 0.08em;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .soul-title {
+        margin-top: 18px;
+        font-size: clamp(34px, 4.8vw, 60px);
+        line-height: 1.18;
+        color: #665d80;
+        max-width: 11ch;
+      }
+
+      .soul-quote {
+        padding: 22px 22px 18px;
+        border-radius: 28px;
+        background: rgba(255,255,255,0.68);
+        border: 1px solid rgba(255,255,255,0.88);
+        box-shadow: 0 18px 36px rgba(209, 216, 241, 0.22);
+      }
+
+      .soul-quote strong {
+        display: block;
+        font-size: clamp(22px, 2.3vw, 30px);
+        line-height: 1.6;
+        color: #7d678e;
+      }
+
+      .soul-small {
+        margin-top: 16px;
+        font-size: 16px;
+        color: #857a98;
+      }
+
+      .love-note {
+        margin-top: 18px;
+        padding: 18px 20px;
+        border-radius: 24px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(247,250,255,0.7));
+        border: 1px solid rgba(228, 232, 246, 0.92);
+      }
+
+      .love-note strong { display: block; color: #6c6386; font-size: 17px; }
+      .love-note p + p { margin-top: 10px; }
+
+      .ideal-wrap {
+        margin-top: 34px;
+        display: grid;
+        grid-template-columns: 1.04fr 0.96fr;
+        gap: 24px;
+      }
+
+      .ideal-notes {
+        display: grid;
+        gap: 14px;
+        align-content: start;
+      }
+
+      .ending-ribbon {
+        margin-top: 24px;
+        padding: 18px 22px;
+        border-radius: 24px;
+        background: linear-gradient(135deg, rgba(255, 244, 249, 0.95), rgba(232, 247, 255, 0.92));
+        border: 1px solid rgba(232, 236, 248, 0.94);
+        box-shadow: 0 16px 32px rgba(208, 216, 240, 0.2);
+      }
+
+      .ending-ribbon strong {
+        display: block;
+        font-size: 20px;
+        line-height: 1.7;
+        color: #75648a;
+      }
+
+      .ending-ribbon p { margin-top: 10px; font-size: 15px; }
+
+      .cta-panel { margin-top: 34px; }
+
+      .install-card ul {
+        margin: 14px 0 0;
+        padding: 0;
+        display: grid;
+        gap: 10px;
+      }
+
+      .footer {
+        margin-top: 22px;
+        padding: 18px 8px 0;
+        text-align: center;
+        color: #948aa7;
+        font-size: 13px;
+        letter-spacing: 0.06em;
+      }
+
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(18px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes glimmer {
+        from { transform: scale(1) translateY(0); opacity: 0.6; }
+        to { transform: scale(1.03) translateY(-10px); opacity: 0.92; }
+      }
+
+      @keyframes drift {
+        from { transform: translate3d(0, 0, 0); }
+        to { transform: translate3d(-10px, 16px, 0); }
+      }
+
+      @keyframes petal-fall {
+        0% { transform: translate3d(0, -6vh, 0) rotate(10deg); opacity: 0; }
+        10% { opacity: 0.78; }
+        50% { transform: translate3d(34px, 46vh, 0) rotate(90deg); }
+        100% { transform: translate3d(-22px, 112vh, 0) rotate(200deg); opacity: 0.08; }
+      }
+
+      @media (max-width: 1160px) {
+        .hero,
+        .sheet-grid,
+        .ideal-wrap,
+        .soul-grid,
+        .output-grid,
+        .boundary-grid,
+        .install-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .output-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .boundary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .hero h1,
+        .soul-title { max-width: none; }
+      }
+
+      @media (max-width: 820px) {
+        .shell { padding: 0 14px 60px; }
+        .topbar-inner,
+        .hero,
+        .sheet-grid,
+        .ideal-wrap,
+        .soul-grid,
+        .install-grid { grid-template-columns: 1fr; }
+        .nav-links { display: none; }
+        .page-inner,
+        .panel-inner,
+        .ideal-inner,
+        .cta-inner { padding: 32px 22px 28px 34px; }
+        .page::after,
+        .panel::after,
+        .ideal-panel::after,
+        .cta-panel::after { left: 12px; top: 18px; bottom: 18px; }
+        .output-grid,
+        .boundary-grid { grid-template-columns: 1fr; }
+        .hero-subline { font-size: 20px; }
+        .button { width: 100%; }
+        .hero-actions { flex-direction: column; }
+        .soul-panel { padding: 22px; }
+      }
+    </style>
+
+    <section class="ideal-wrap" id="ideal">
+      <article class="ideal-panel">
+        <div class="ideal-inner">
+          <span class="postmark">ideal & reality</span>
+          <span class="section-kicker">理想与现实</span>
+          <h2>它不是取消理想，而是审计理想在现实里如何被损耗、篡改，或被保存。</h2>
+          <p class="ideal-lead">本模型不预设任何宏大理想必然失败，也不预设任何终极目标会自动实现。它真正关心的是，理想一旦进入组织结构、历史过程和现实执行，就会如何遭遇异化、熵增、锚点漂移与反馈失真。</p>
+          <p class="ideal-lead" style="margin-top: 14px;">因此，它不是为了嘲讽理想，而是为了帮助我们识别理想在哪些环节被损耗、被替换、被扭曲，或者仍然被认真保存。</p>
+          <div class="ending-ribbon">
+            <strong>如果一个理想不能承受对其现实实现机制的分析，那么威胁它的不是模型，而是它自身的脆弱。</strong>
+            <p>世界模型不应被理解成对理想的否定，而应被理解成一种对实现路径、组织条件与历史代价的严厉审计。</p>
+          </div>
+        </div>
+      </article>
+
+      <aside class="ideal-notes">
+        <article class="ideal-note">
+          <strong>它想看的，不是口号有多高</strong>
+          <p>而是一个理想进入现实后，需要怎样的锚点、反馈、支持链和执行纪律，才能不被迅速耗空。</p>
+        </article>
+        <article class="ideal-note">
+          <strong>它也不把失真当成宿命</strong>
+          <p>异化与漂移值得分析，并不等于理想天然虚假。恰恰相反，认真分析失真，是为了让保存成为可能。</p>
+        </article>
+        <article class="ideal-note">
+          <strong>因此它既保留现实，也保留勇气</strong>
+          <p>不是对宏大叙事失去兴趣，而是要求任何重要目标都必须接受现实机制的检验。</p>
+        </article>
+      </aside>
+    </section>
+
+    <section class="cta-panel" id="install">
+      <div class="cta-inner">
+        <span class="postmark">entry points</span>
+        <span class="section-kicker">使用入口</span>
+        <h2>当你想把一个复杂对象重新读成结构时，这里就是入口。</h2>
+        <p class="cta-lead">它仍然是一套可以直接使用的 skill。你可以先阅读作品说明，也可以直接从 GitHub 安装，让它作为日常分析工具被调用。</p>
+        <div class="install-grid">
+          <article class="install-card">
+            <strong>作品阅读入口</strong>
+            <p>如果你想先理解这个模型的气质、边界和思考方式，可以从仓库和介绍页开始。</p>
+            <ul>
+              <li>查看 GitHub 仓库结构与 README</li>
+              <li>阅读介绍页中的边界、理想与爱</li>
+              <li>从示例里感受它如何诊断复杂对象</li>
+            </ul>
+          </article>
+          <article class="install-card">
+            <strong>Codex 安装入口</strong>
+            <p>如果你已经想把它装进本地 skill，可以直接从标准路径安装并开始调用。</p>
+            <ul>
+              <li>仓库路径：skills/world-structure</li>
+              <li>安装后重启 Codex 即可识别</li>
+              <li>适合团队、关系、项目与组织分析</li>
+            </ul>
+          </article>
+        </div>
+        <div class="hero-actions">
+          <a class="button primary" href="https://github.com/xixilove486/world-structure-skill" target="_blank" rel="noreferrer">前往 GitHub</a>
+          <a class="button secondary" href="https://xixilove486.github.io/world-structure-skill/" target="_blank" rel="noreferrer">查看在线页面</a>
+        </div>
       </div>
     </section>
-  </main>
 
-  <footer class="wrap footer">
-    世界模型 | 给 AI 和人类共同使用的结构地图
-  </footer>
+    <footer class="footer">
+      world-structure-skill · 柔和、发光、记忆感、但仍然清楚可用的结构工具页
+    </footer>
+  </div>
 </body>
 </html>
