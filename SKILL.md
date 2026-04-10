@@ -1,182 +1,243 @@
 ---
 name: world-structure
-description: Analyze why a team, relationship, project, institution, or complex situation is stuck, drifting, fragmenting, or losing coherence, and identify the core contradiction, main risk direction, and best repair priority. Use when the user wants structural diagnosis, hidden-pattern analysis, stage judgment, or intervention priority. Do not use for exact event prediction, clinical diagnosis, or professional legal/medical/financial advice.
+description: 用于分析团队、关系、项目、组织与公共议题中复杂失衡问题的结构化诊断工具。
 ---
 
-# World Structure
+# 世界结构
 
-Use this skill to analyze complex objects as **structures in motion**, not as collections of isolated events or personalities.
+把这个 skill 用在**复杂系统的结构诊断**上，而不是把对象拆成几个孤立事件，或者只从个体动机出发做表面判断。
 
-This skill is for:
-- teams
-- relationships
-- projects
-- communities
-- institutions
-- creative groups
-- complex situations with recurring conflict, bottlenecks, hidden structure, drift, fragmentation, or loss of vitality
+它适合分析：
 
----
-
-## Discovery Intent
-
-This skill should trigger when the user is effectively asking:
-
-- Why is this team always stuck?
-- What is structurally wrong with this relationship?
-- Why does this project keep losing momentum?
-- What stage is this organization in?
-- What is the hidden structure behind this conflict?
-- What should be repaired first?
-- What is really going on here beneath the surface?
-
-This skill should **not** trigger for:
-- exact future prediction
-- pure emotional reassurance without analysis
-- simple factual lookup
-- arithmetic or coding help unrelated to structural diagnosis
-- clinical or legal judgment
-- one-off problems that do not need structural analysis
+- 团队
+- 关系
+- 项目
+- 社群
+- 组织
+- 制度
+- 公共议题中的复杂失衡问题
+- 反复冲突、长期停滞、暗中漂移、逐渐僵化或正在碎裂的系统
 
 ---
 
-## Core Promise
+## 触发意图
 
-When this skill is active, do five things in order:
+当用户实际上在问下面这类问题时，优先触发这个 skill：
 
-1. define the system
-2. identify the anchor and constraints
-3. map layers, roles, and support chains
-4. locate disturbance, drift, entropy, and stage
-5. output a structural diagnosis with priorities and uncertainty
+- 为什么这个团队总推进不动？
+- 这段关系为什么没有直接崩，却越来越空？
+- 这个项目为什么越忙越失真？
+- 这个组织现在更像扩张期、瓶颈期，还是已经开始僵化？
+- 这场冲突背后真正的结构问题是什么？
+- 如果只能先修一处，最该修哪里？
+- 这个系统到底出了什么问题，不只是表面现象而已？
 
-Do not jump straight to blame, personality judgment, or surface advice.
+下面这些情况通常**不该**触发这个 skill：
 
----
-
-## Structural Principles
-
-### 1. Structure before blame
-Analyze forces, incentives, bottlenecks, and feedback loops before assigning moral judgment.
-
-### 2. High-cost signals before declarations
-Prefer repeated action, resource flow, sacrifice, continuity, and consequence over slogans and self-description.
-
-### 3. Constraints before interventions
-Many systems are not failing because nobody is trying. They are failing because the structure cannot bear more strain.
-
-### 4. Stage matters
-The same symptom means different things at different stages.
-
-### 5. Uncertainty must be explicit
-Every analysis should include at least one blind spot, uncertainty, or alternative interpretation.
+- 精确预测未来事件
+- 单纯查事实
+- 算术、代码、工具操作等与结构诊断无关的问题
+- 单次、偶发、没有明显结构模式的问题
+- 临床诊断、法律判断、医疗建议、金融建议
+- 只需要安慰，不需要分析的对话
 
 ---
 
-## Workflow
+## 核心承诺
 
-## Step 0: Define the object
-Ask:
-- What exactly is the system?
-- What is inside it, outside it, and unclear?
-- Is the user describing one system or several mixed together?
-- What time scale matters here?
+当这个 skill 被启用时，优先做这几件事：
 
-## Step 1: Identify the anchor
-Ask:
-- What is this system trying to preserve, achieve, or orbit around?
-- Is the anchor explicit, implicit, split, hollow, or replaced?
-- Do actions still match the stated anchor?
+1. 界定当前到底在分析什么系统
+2. 识别它的锚点（anchor）与约束（constraints）
+3. 判断角色、层级与推力链（thrust chain）如何运作
+4. 识别扰动、漂移、熵增与阶段信号
+5. 输出结构判断、风险方向与最优先干预点
+6. 明确保留不确定性，而不是装作看透一切
 
-## Step 2: Identify the constraints
-Look for:
-- resource limits
-- trust limits
-- memory loss
-- legitimacy loss
-- role overload
-- coordination cost
-- external pressure
-- brittle incentives
-
-## Step 3: Map layers and roles
-Ask:
-- Who sustains continuity?
-- Who drives change?
-- Who links layers?
-- Who absorbs cost?
-- Who holds memory?
-- Who blocks or extracts?
-
-## Step 4: Examine support chains
-Ask:
-- What keeps the system alive?
-- Which support chains are stable?
-- Which are hidden?
-- Which are thinning or breaking?
-
-Support chains may include:
-- resources
-- trust
-- legitimacy
-- emotional energy
-- social credit
-- institutional memory
-- replacement pathways
-- renewal pathways
-
-## Step 5: Identify disturbance, drift, and entropy
-Look for:
-- repeated disturbance
-- slow drift
-- internal extraction
-- ritual without function
-- rising coordination cost
-- defensive rigidity
-- support-chain thinning
-- memory loss
-- fragmentation pressure
-
-Do not automatically personify disturbance.
-
-## Step 6: Determine the stage
-Use approximate stage logic:
-
-1. formation
-2. expansion
-3. bottleneck
-4. transition
-5. stabilization
-6. rigidity
-7. fragmentation
-8. renewal attempt
-
-## Step 7: Produce the diagnosis
-Always output using this structure:
-
-### Structural Judgment
-What kind of system is this, and what is happening structurally?
-
-### Core Contradiction
-What is the deepest tension driving the visible symptoms?
-
-### Main Risk Direction
-If nothing changes, what kind of failure or drift is most likely?
-
-### Best Intervention Priority
-What should be repaired first, and why that before everything else?
-
-### Uncertainty / Alternative Readings
-What do we still not know? What else could explain the pattern?
+这个 skill 的目标不是替代现实，也不是冻结对象。  
+它的目标是让复杂问题变得更可见、更可判断、更可修复。
 
 ---
 
-## Reference Loading Rule
+## 结构原则
 
-Use the split files under `resources/world-model/` by default.
+### 1. 结构优先于责备
+先分析力量、约束、卡点、反馈与阶段，再讨论责任与评价。
 
-### Default working set
-Start with:
+### 2. 高成本信号优先于表态
+优先看行动、资源流向、持续投入、后果与代价，而不是只听口号、自述或姿态。
+
+### 3. 约束优先于建议
+很多系统不是没人努力，而是已经承载过载。不要把过载误判成恶意。
+
+### 4. 阶段会改变症状含义
+同一个表面现象，在不同阶段里，含义可能完全不同。
+
+### 5. 熵增会积累
+有些问题不是某次事件造成的，而是长期约束、长期失真、长期回流不足累积出来的。
+
+### 6. 表面症状不等于真实故障点
+最吵的地方不一定是核心故障点。最显眼的冲突，也不一定是最值得先修的地方。
+
+### 7. 不确定性必须显式保留
+任何结构判断都应保留余量。不要把模型说成神谕。
+
+---
+
+## 分析流程
+
+### Step 0：界定对象
+先问清楚，现在到底在分析什么。
+
+重点判断：
+
+- 现在分析的是一个系统，还是几个系统混在一起？
+- 用户描述的是表面症状、子系统问题，还是外部环境压力？
+- 当前抱怨是短期现象，还是长期结构模式？
+- 哪个时间尺度最关键？是最近一次事件，还是长期演化过程？
+- 当前对象到底是“团队问题”“关系问题”“组织问题”，还是“环境施压下的系统反应”？
+
+如果对象界定错误，后面的分析会整体偏掉。
+
+### Step 1：识别锚点
+判断这个系统真正围绕什么在运转。
+
+要问：
+
+- 它表面上说自己围绕什么？
+- 它实际上又围绕什么在运转？
+- 明面锚点和实际锚点是否一致？
+- 锚点是否仍然提供方向、稳定性与组织能力？
+- 行动是否还和锚点一致？
+- 锚点是在稳定、漂移、空心化，还是已经被替换？
+
+锚点不是口号，它是系统真正围绕之物。
+
+### Step 2：识别约束
+判断系统现在被什么限制住了。
+
+重点看：
+
+- 资源限制
+- 时间限制
+- 信任限制
+- 记忆与经验流失
+- 合法性不足
+- 角色过载
+- 协调成本过高
+- 外部环境持续施压
+
+这里要特别注意：  
+有些冲突是过载，不一定是恶意。  
+有些故障来自长期约束积累，不是单次事件。
+
+### Step 3：看角色与层级
+判断系统内部是谁在维持、谁在推动、谁在阻塞。
+
+要问：
+
+- 谁在维持连续性？
+- 谁在推动变化？
+- 谁在连接层级？
+- 谁在吸收成本？
+- 谁掌握关键记忆？
+- 谁在阻塞、扭曲或截断信息？
+- 明面角色与实际作用是否一致？
+
+不要急着把问题都归到“某个人”。  
+很多问题来自角色错位、层级断裂或结构失配。
+
+### Step 4：检查推力链
+判断系统靠什么持续运转，以及这些东西如何进入、维持、回流与断裂。
+
+这里的“推力链”主要指：
+
+- 资源从哪里来
+- 认同从哪里来
+- 合法性如何维持
+- 情感投入如何进入系统
+- 制度记忆如何被保留
+- 更新与替代路径是否存在
+- 回流是否还在发生
+
+要问：
+
+- 哪条推力链最关键？
+- 哪条推力链已经变薄、断裂或失衡？
+- 当前系统是在消耗存量，还是还能形成回流？
+- 哪个环节在截断补给、认同、记忆或合法性？
+
+### Step 5：识别扰动、漂移与熵增
+判断是什么在让系统越来越失真。
+
+重点看：
+
+- 重复性扰动
+- 锚点漂移
+- 反馈失真
+- 回流不足
+- 结构空心化
+- 规则增厚但效能下降
+- 局部修补越来越频繁
+- 组织成本越来越高
+- 表面还在运行，但内部已经僵硬或断裂
+
+### Step 6：判断阶段
+用阶段（stage）做近似判断，而不是宿命判断。
+
+可参考的阶段语言：
+
+1. 形成
+2. 扩张
+3. 瓶颈
+4. 转型
+5. 稳定
+6. 僵化
+7. 碎裂
+8. 更新尝试
+
+注意：
+
+- 阶段只是近似判断，不是命运
+- 系统可能循环、停滞、回退、碎裂
+- 不同子系统可能同时呈现混合阶段信号
+- 阶段的意义是帮助解释症状，不是宣布结局
+
+### Step 7：形成诊断输出
+最后把观察压缩成一个可用的结构面板，而不是散乱评论。
+
+---
+
+## 推荐输出结构
+
+### 关键信号
+哪些观察最支持当前判断？
+
+### 结构判断
+这是什么类型的系统？当前正在发生什么结构性变化？
+
+### 核心矛盾
+最深层的张力或冲突是什么？
+
+### 主要风险方向
+如果不调整，最可能往哪个方向失衡、漂移或断裂？
+
+### 最优先干预点
+现在最该先修什么？为什么是这个，而不是别的？
+
+### 不确定性 / 其他可能解释
+我们还不知道什么？还有哪些替代解释？
+
+---
+
+## 读取优先级说明
+
+默认不要一上来就读完整长文。  
+优先按轻量顺序读取。
+
+### 默认工作集
+先使用：
+
 - `resources/world-model/00-index.md`
 - `resources/world-model/01-model-positioning.md`
 - `resources/world-model/02-core-principles.md`
@@ -187,65 +248,100 @@ Start with:
 - `resources/world-model/07-boundaries-and-warnings.md`
 - `resources/world-model/08-extended-notes.md`
 
-### Use references only when needed
-Use `resources/world-model/13-references-and-validation.md` when the user asks for:
-- sources
-- theory dialogue
-- methodology notes
-- validation status
-- where these ideas came from
+### 需要来源与方法论时
+当用户追问下面这些问题时，再读取：
 
-### Use the full file only when necessary
-Use `resources/world-model/world-model-full.md` only when:
-- full-context reading is necessary
-- the request spans multiple sections
-- the original long-form continuity matters
-- the split files are insufficient
-- the user explicitly asks for the full version
+- 来源
+- 理论对话
+- 方法论定位
+- 验证状态
+- 模型依据来自哪里
 
-Default priority:
+使用：
+
+- `resources/world-model/13-references-and-validation.md`
+
+### 只有在完整上下文必要时
+只有在下面这些情况下，才读取完整文件：
+
+- 用户明确要求完整版本
+- 当前问题跨越多个章节
+- 需要保留原始长文的连续性
+- 拆分文件不足以支撑判断
+
+使用：
+
+- `resources/world-model/world-model-full.md`
+
+### 默认优先级
 1. `00-index.md` + `01-08`
 2. `13-references-and-validation.md`
 3. `world-model-full.md`
 
-This keeps the skill lightweight by default and preserves the full file as an archival / deep-context fallback.
+---
+
+## 输出风格
+
+保持下面这些特征：
+
+- 短句
+- 清楚
+- 克制
+- 有工具感
+- 非戏剧化
+- 不玄
+- 不装全知
+- 不营销化
+
+优先像一个成熟的中文分析型 skill。  
+不要写成论文摘要，也不要写成夸张的宣言。
 
 ---
 
-## Output Style
+## 防误用规则
 
-Preferred tone:
-- clear
-- calm
-- non-weaponized
-- structurally literate
-- willing to name risk without melodrama
+### 不要把结构诊断变成人格审判
+这个 skill 不是用来给人贴“本质标签”的。
 
-Avoid:
-- theatrical doom language
-- fake precision
-- treating every conflict as pathology
-- pretending the model sees everything
+### 不要把模型说成世界真理机
+它是分析框架，不是终极真理。
 
----
+### 不要把一切都还原成结构决定论
+结构重要，但结构不取消心理、行动、偶然性与修复可能。
 
-## Guardrails
+### 不要把痛苦、崩塌、碎裂浪漫化成“深刻”
+失衡不自动高贵，崩塌也不自动有价值。
 
-Never:
-- use “structure” to erase responsibility
-- use “anchor” to sanctify power
-- use “disturbance” as a smear label
-- use “stage” as destiny
-- use “uncertainty” as an excuse to say nothing useful
+### 不要把阶段判断说成宿命论
+判断一个系统处于僵化、漂移或碎裂，不等于宣告修复不可能。
 
-Do:
-- separate observation from inference
-- distinguish local failure from systemic failure
-- prefer repair priorities over grand abstraction
-- name when evidence is insufficient
+### 不要把理想直接取消掉
+这个模型不是为了否定理想，而是为了审计理想进入现实后，会如何被损耗、篡改或保存。
+
+### 不要用模型替代现实观察
+模型帮助看清，但不能代替对现实的继续观察与修正。
 
 ---
 
-## Quick Activation Cue
+## 快速激活提示
 
-If the user’s question contains repeated conflict, hidden pattern, bottleneck, breakdown, hollow growth, structural drift, or asks “what is really going on here?”, activate this skill.
+当用户的问题里出现下面这些信号时，可以优先启用这个 skill：
+
+- 反复冲突
+- 推进停滞
+- 暗中漂移
+- 组织僵化
+- 关系空心化
+- 反馈失真
+- 角色错位
+- 锚点不稳
+- 推力链断裂
+- “到底真正出了什么问题”
+- “最该先修哪里”
+
+---
+
+## 最后一句
+
+这个 skill 不是为了替代理想、取消心理或冻结现实。  
+它只是试图用更稳的结构语言，让复杂系统变得更可见、更可判断、更可修复。
