@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>世界结构.skill</title>
+  <meta name="description" content="一个用于分析团队、关系、项目、组织与公共议题中复杂失衡问题的结构化诊断工具。" />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --bg2:#121a2f;
+      --panel:rgba(255,255,255,.08);
+      --panel2:rgba(255,255,255,.05);
+      --line:rgba(255,255,255,.12);
+      --text:#f8fafc;
+      --muted:#cbd5e1;
+      --accent:#8b5cf6;
+      --accent2:#38bdf8;
+      --accent3:#22c55e;
+      --max:1140px;
+      --radius:24px;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(139,92,246,.18), transparent 28%),
+        radial-gradient(circle at 84% 28%, rgba(56,189,248,.15), transparent 26%),
+        radial-gradient(circle at 50% 88%, rgba(34,197,94,.10), transparent 30%),
+        linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
+      color:var(--text);
+      font:16px/1.72 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .nav{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(11,16,32,.56);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      max-width:var(--max);margin:0 auto;padding:14px 20px;
+      display:flex;justify-content:space-between;align-items:center;gap:16px;
+    }
+    .brand{font-weight:800;letter-spacing:.02em}
+    .nav-links{display:flex;gap:16px;color:var(--muted);font-size:14px;flex-wrap:wrap}
+    .hero{padding:56px 0 20px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    .card{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .hero-copy{padding:34px}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;border-radius:999px;
+      background:rgba(255,255,255,.06);border:1px solid var(--line);
+      color:var(--muted);font-size:13px
+    }
+    h1{
+      margin:16px 0 10px;
+      font-size:clamp(34px,5vw,62px);
+      line-height:1.02;letter-spacing:-.03em;
+    }
+    .subline{margin:0;color:#e2e8f0;font-size:clamp(18px,2vw,24px);font-weight:700}
+    .lede{margin:18px 0 0;color:var(--muted);font-size:17px;max-width:66ch}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+    .badge{
+      padding:8px 12px;border-radius:999px;
+      background:rgba(255,255,255,.07);border:1px solid var(--line);
+      font-size:13px;color:#e5e7eb
+    }
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 16px;border-radius:16px;border:1px solid var(--line);font-weight:700
+    }
+    .btn.primary{
+      background:linear-gradient(135deg,var(--accent),#6d28d9);
+      box-shadow:0 10px 30px rgba(139,92,246,.28)
+    }
+    .btn.secondary{background:rgba(255,255,255,.06)}
+    .hero-side{padding:22px;display:grid;gap:14px}
+    .mini{
+      padding:18px;border-radius:18px;
+      background:rgba(255,255,255,.04);border:1px solid var(--line)
+    }
+    .mini h3{margin:0 0 8px;font-size:17px}
+    .mini p{margin:0;color:var(--muted);font-size:14px}
+    .section{padding:22px 0}
+    .kicker{
+      color:#a5b4fc;font-weight:700;letter-spacing:.08em;
+      text-transform:uppercase;font-size:12px;margin-bottom:10px
+    }
+    .section h2{
+      margin:0 0 12px;
+      font-size:clamp(24px,3vw,36px);
+      line-height:1.1;letter-spacing:-.02em
+    }
+    .lead{margin:0;color:var(--muted);max-width:72ch}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:20px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+    .grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:20px}
+    .panel{padding:22px}
+    .panel h3{margin:0 0 8px;font-size:20px}
+    .panel p{margin:0;color:var(--muted)}
+    .case{
+      padding:18px;border-radius:18px;
+      background:rgba(255,255,255,.04);border:1px solid var(--line)
+    }
+    .case .tag{
+      color:#a5b4fc;font-size:12px;font-weight:700;
+      letter-spacing:.08em;text-transform:uppercase
+    }
+    .case .line{margin-top:8px}
+    .case .muted{color:var(--muted)}
+    .case .strong{font-weight:700}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{
+      padding:6px 10px;border-radius:999px;
+      background:rgba(255,255,255,.06);border:1px solid var(--line);
+      font-size:12px;color:#e5e7eb
+    }
+    .output{
+      padding:18px;border-radius:18px;
+      background:rgba(255,255,255,.04);border:1px solid var(--line);
+      min-height:148px
+    }
+    .output h3{margin:0 0 6px;font-size:16px}
+    .output p{margin:0;color:var(--muted);font-size:14px}
+    .statement{
+      padding:26px 28px;
+      font-size:clamp(18px,2vw,25px);
+      line-height:1.58;letter-spacing:-.02em
+    }
+    .statement small{
+      display:block;margin-top:12px;color:var(--muted);font-size:14px;line-height:1.72
+    }
+    .notice{
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(255,255,255,.04);border:1px solid var(--line);
+      color:var(--muted)
+    }
+    .footer{padding:36px 0 56px;color:var(--muted);font-size:14px}
+    @media (max-width: 980px){
+      .hero-grid,.grid-2,.grid-3,.grid-5{grid-template-columns:1fr}
+      .hero{padding-top:34px}
+      .hero-copy,.hero-side{padding:24px}
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">世界结构.skill</div>
+      <div class="nav-links">
+        <a href="#cases">3 秒看懂</a>
+        <a href="#method">怎么分析</a>
+        <a href="#outputs">输出什么</a>
+        <a href="#boundary">边界</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero wrap">
+    <div class="hero-grid">
+      <section class="card hero-copy">
+        <div class="eyebrow">结构化诊断工具</div>
+        <h1>不是解释万物，<br>而是看清复杂对象的结构。</h1>
+        <p class="subline">适合分析团队、关系、项目、组织与公共议题中的复杂失衡问题。</p>
+        <p class="lede">
+          这是一个用于识别系统为何失衡、卡住、漂移、僵化或碎裂的工具页面。
+          它不是抽象哲学主页，也不是世界真理机。它更像一套可以直接拿来判断问题、排序风险、寻找干预优先级的方法框架。
+        </p>
+        <div class="badges">
+          <span class="badge">锚点</span>
+          <span class="badge">约束</span>
+          <span class="badge">角色与层级</span>
+          <span class="badge">推力链</span>
+          <span class="badge">阶段</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#method">阅读核心方法</a>
+          <a class="btn secondary" href="https://github.com/xixilove486/world-structure-skill">去 GitHub 开始使用</a>
+        </div>
+      </section>
+
+      <section class="card hero-side">
+        <div class="mini">
+          <h3>一句定位</h3>
+          <p>用结构诊断替代表面归因，用可解释的判断替代情绪化判断。</p>
+        </div>
+        <div class="mini">
+          <h3>适用场景</h3>
+          <p>团队推进失灵、关系持续空心、项目长期失真、组织逐步僵化、公共系统出现反馈失真。</p>
+        </div>
+        <div class="mini">
+          <h3>这不是……</h3>
+          <p>不是人格判断器，不是贴标签工具，不是纯结构决定论，也不是取消理想的工具。</p>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section" id="cases">
+      <div class="kicker">3 秒看懂</div>
+      <h2>它和普通说法有什么不同？</h2>
+      <p class="lead">同一个问题，表象很短，判断更短，但分析手感会立刻不同。</p>
+      <div class="grid-3">
+        <div class="case">
+          <div class="tag">团队</div>
+          <div class="line"><span class="muted">表象：</span>一个团队总在原地打转</div>
+          <div class="line"><span class="muted">普通说法：</span>他们不够努力</div>
+          <div class="line"><span class="strong">世界模型判断：</span>锚点漂移 + 推力链失衡 + 阶段误判</div>
+        </div>
+        <div class="case">
+          <div class="tag">关系</div>
+          <div class="line"><span class="muted">表象：</span>一段关系没有崩，却越来越空</div>
+          <div class="line"><span class="muted">普通说法：</span>感情淡了</div>
+          <div class="line"><span class="strong">世界模型判断：</span>回流不足 + 角色失配 + 反馈失真</div>
+        </div>
+        <div class="case">
+          <div class="tag">项目 / 组织</div>
+          <div class="line"><span class="muted">表象：</span>项目越忙越失真，组织越来越硬</div>
+          <div class="line"><span class="muted">普通说法：</span>执行力不够</div>
+          <div class="line"><span class="strong">世界模型判断：</span>约束累积 + 推力链断裂 + 僵化阶段形成</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="kicker">怎么分析</div>
+      <h2>它默认看这些东西。</h2>
+      <div class="grid-3">
+        <div class="panel card">
+          <h3>锚点</h3>
+          <p>系统围绕什么在维持、追求或漂移。</p>
+        </div>
+        <div class="panel card">
+          <h3>约束</h3>
+          <p>什么在限制它，什么让它无法继续承担。</p>
+        </div>
+        <div class="panel card">
+          <h3>角色与层级</h3>
+          <p>谁在维持，谁在推动，谁在连接，谁在阻塞。</p>
+        </div>
+        <div class="panel card">
+          <h3>推力链</h3>
+          <p>资源、认同、回流、合法性与情感投入从哪里来，如何进入系统、维持系统，又在何处断裂。</p>
+        </div>
+        <div class="panel card">
+          <h3>扰动 / 漂移 / 熵增</h3>
+          <p>什么在让系统失真、漂移、僵化、分裂或空心化。</p>
+        </div>
+        <div class="panel card">
+          <h3>阶段</h3>
+          <p>它处在形成、扩张、瓶颈、转型、稳定、僵化还是更新尝试。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">适用对象</div>
+      <h2>它尝试提供一套跨尺度观察框架。</h2>
+      <p class="lead">
+        这里强调的是“可比较的结构问题”，不是“对所有层级都同样成熟”。
+        它不是在解释万物，而是在不同尺度上观察锚点、约束、推力链、反馈与阶段如何变化。
+      </p>
+      <div class="grid-2">
+        <div class="panel card">
+          <h3>个体与近身系统</h3>
+          <p>个体内部、关系、家庭、团队、社群。</p>
+          <div class="chips">
+            <span class="chip">个体</span>
+            <span class="chip">关系</span>
+            <span class="chip">家庭</span>
+            <span class="chip">团队</span>
+            <span class="chip">社群</span>
+          </div>
+        </div>
+        <div class="panel card">
+          <h3>组织与公共系统</h3>
+          <p>项目、组织、制度、圈层、公共议题中的复杂失衡问题。</p>
+          <div class="chips">
+            <span class="chip">项目</span>
+            <span class="chip">组织</span>
+            <span class="chip">制度</span>
+            <span class="chip">圈层</span>
+            <span class="chip">公共议题</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="outputs">
+      <div class="kicker">输出什么</div>
+      <h2>它通常会产出这五类结果。</h2>
+      <div class="grid-5">
+        <div class="output card">
+          <h3>结构判断</h3>
+          <p>当前系统到底发生了什么，不再只停留于表象描述。</p>
+        </div>
+        <div class="output card">
+          <h3>核心矛盾</h3>
+          <p>真正把系统拖向失衡的深层张力是什么。</p>
+        </div>
+        <div class="output card">
+          <h3>主要风险方向</h3>
+          <p>如果不改，它最可能往哪边坏。</p>
+        </div>
+        <div class="output card">
+          <h3>干预优先级</h3>
+          <p>如果只能先修一处，最该先修哪里。</p>
+        </div>
+        <div class="output card">
+          <h3>不确定性说明</h3>
+          <p>哪些地方还不能过度断言，哪些判断仍需保留余量。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="boundary">
+      <div class="kicker">这不是……</div>
+      <h2>它首先是工具，其次才是表达。</h2>
+      <div class="grid-2">
+        <div class="panel card">
+          <h3>它不是什么</h3>
+          <div class="chips">
+            <span class="chip">不是人格判断器</span>
+            <span class="chip">不是贴标签工具</span>
+            <span class="chip">不是世界真理机</span>
+            <span class="chip">不是纯结构决定论</span>
+            <span class="chip">不是取消理想的工具</span>
+          </div>
+        </div>
+        <div class="panel card">
+          <h3>它更像什么</h3>
+          <p>一套对复杂系统进行结构判断、风险排序和实现条件审计的方法框架。它不是为了替代理想、取消心理、取消行动，而是为了让分析更稳、更少误读。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">方法边界</div>
+      <h2>关于“爱”的边界</h2>
+      <div class="card statement">
+        爱不是用来替代理论解释的，而是用来标记理论解释的边界。<br><br>
+        先做结构解释，再做心理解释。只有在两者都足够强，却仍然剩下无法压平的行动余量时，才谨慎为超越性保留空间。
+        <small>
+          这不是把爱变小，而是避免它被滥用成偷懒的解释词。真正的方法论克制，不是急着抬高爱，而是先把结构与心理都做完。
+        </small>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">理想与现实</div>
+      <h2>它不取消理想，它审计理想的实现条件。</h2>
+      <div class="card statement">
+        本模型不预设任何宏大理想必然失败，也不预设任何终极目标会自动实现。<br><br>
+        它关心的是：任何理想一旦进入现实组织与历史过程，就会遭遇异化、熵增、锚点漂移与反馈失真。模型的任务不是取消理想，而是帮助识别理想如何在现实中被损耗、篡改，或在何种条件下被保存。<br><br>
+        如果一个理想不能承受对其现实实现机制的分析，那么真正威胁它的，不是模型，而是它自身的脆弱。
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="notice card">
+        世界模型不是对理想的否定，而是对理想实现条件的严厉审计。
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card statement" style="text-align:center;">
+        先理解它是什么，再决定是否使用它。<br><br>
+        <div class="cta" style="justify-content:center;">
+          <a class="btn primary" href="#method">阅读核心方法</a>
+          <a class="btn secondary" href="https://github.com/xixilove486/world-structure-skill">去 GitHub 开始使用</a>
+        </div>
+        <small>
+          如果这个项目对你有帮助，也欢迎回到 GitHub 顺手点一个 ⭐。
+        </small>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    世界结构.skill · 一个用于复杂失衡问题的结构化诊断工具
+  </footer>
+</body>
+</html>
