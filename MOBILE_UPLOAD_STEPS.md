@@ -1,31 +1,29 @@
-# Mobile Upload Steps
+﻿# Mobile Upload Steps
 
-If you are using only a phone, this is the easiest upload order.
+If you are editing the repository from a phone, upload in this order.
 
-## 1. New files you can upload directly
-Upload these as brand-new files:
-- LICENSE
-- CONTRIBUTING.md
-- ROADMAP.md
+## Core Package First
 
-## 2. Repo description
-Open `REPO_DESCRIPTION_ZH_EN.md`, copy one description, and paste it into the GitHub repo description field manually.
+Upload or update these inside `skills/world-structure/` first:
 
-## 3. Optional helper files
-Upload if you want:
-- TOPICS.txt
-- TAGLINE_OPTIONS.md
-- FINAL_CHECKLIST.md
-- MOBILE_UPLOAD_STEPS.md
+1. `skills/world-structure/SKILL.md`
+2. `skills/world-structure/README.md`
+3. `skills/world-structure/resources/`
+4. `skills/world-structure/templates/`
+5. `skills/world-structure/examples/`
 
-## 4. Recommended order
-1. LICENSE
-2. TOPICS.txt
-3. FINAL_CHECKLIST.md
-4. REPO_DESCRIPTION_ZH_EN.md
-5. TAGLINE_OPTIONS.md
-6. MOBILE_UPLOAD_STEPS.md
+## Root Docs Second
 
-## 5. Topics
-GitHub topics are not uploaded from a file.
-Open the repository homepage, tap the gear icon near "About", and paste the topics from `TOPICS.txt` one by one.
+Then update repository-level files:
+
+1. `README.md`
+2. `CONTRIBUTING.md`
+3. `ROADMAP.md`
+4. `FINAL_CHECKLIST.md`
+5. `LICENSE`
+
+## Reminder
+
+For Codex installation, the important path is:
+
+`skills/world-structure`

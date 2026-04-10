@@ -1,0 +1,16 @@
+# Quick Diagnosis Template
+
+## Structural Judgment
+...
+
+## Core Contradiction
+...
+
+## Main Risk Direction
+...
+
+## Best Intervention Priority
+...
+
+## Uncertainty / Alternative Readings
+...
