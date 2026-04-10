@@ -455,6 +455,14 @@
       right: 22px;
       bottom: 20px;
       z-index: 26;
+      width: 76px;
+      height: 76px;
+    }
+
+    .music-card-inner {
+      position: absolute;
+      right: 0;
+      bottom: 88px;
       width: min(320px, calc(100vw - 28px));
       padding: 16px;
       border-radius: 28px;
@@ -463,18 +471,19 @@
       box-shadow: 0 22px 48px rgba(189, 196, 234, 0.32);
       backdrop-filter: blur(18px);
       overflow: hidden;
-      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+      transform-origin: bottom right;
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, opacity .24s ease, visibility .24s ease;
     }
 
-    .music-card::before,
-    .music-card::after {
+    .music-card-inner::before,
+    .music-card-inner::after {
       content: "";
       position: absolute;
       pointer-events: none;
       border-radius: 50%;
     }
 
-    .music-card::before {
+    .music-card-inner::before {
       width: 148px;
       height: 148px;
       right: -46px;
@@ -482,7 +491,7 @@
       background: radial-gradient(circle, rgba(215, 240, 255, 0.72), transparent 70%);
     }
 
-    .music-card::after {
+    .music-card-inner::after {
       width: 120px;
       height: 120px;
       left: -36px;
@@ -490,48 +499,168 @@
       background: radial-gradient(circle, rgba(255, 220, 238, 0.74), transparent 72%);
     }
 
-    .music-card:hover {
+    .music-card[data-expanded="true"] .music-card-inner:hover {
       transform: translateY(-2px);
       box-shadow: 0 28px 56px rgba(188, 196, 234, 0.38);
     }
 
-    .music-card[data-playing="true"] {
+    .music-card[data-playing="true"] .music-card-inner {
       border-color: rgba(237, 226, 247, 0.96);
       box-shadow: 0 30px 64px rgba(188, 196, 234, 0.44);
     }
 
-    .music-card-inner {
-      position: relative;
-      z-index: 1;
+    .music-card[data-expanded="false"] .music-card-inner {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(14px) scale(0.96);
+    }
+
+    .music-card[data-expanded="true"] .music-card-inner {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
     }
 
     .music-head {
       display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .music-head-main {
+      display: grid;
       grid-template-columns: 62px 1fr;
       gap: 14px;
       align-items: center;
+      min-width: 0;
+    }
+
+    .music-orb,
+    .music-trigger,
+    .music-dismiss {
+      border: none;
+      cursor: pointer;
+      transition: transform .24s ease, box-shadow .24s ease, background .24s ease;
+    }
+
+    .music-orb {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, rgba(255,255,255,0.92), rgba(245,248,255,0.82));
+      box-shadow: 0 18px 36px rgba(192, 201, 236, 0.34);
+      backdrop-filter: blur(14px);
+      overflow: hidden;
+    }
+
+    .music-orb:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 22px 42px rgba(190, 201, 237, 0.4);
+    }
+
+    .music-orb::before,
+    .music-orb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .music-orb::before {
+      background: linear-gradient(145deg, rgba(255, 239, 247, 0.98), rgba(215, 242, 255, 0.92));
+      opacity: 0.95;
+    }
+
+    .music-orb::after {
+      inset: 6px;
+      border: 1px dashed rgba(255,255,255,0.86);
+    }
+
+    .music-card[data-playing="true"] .music-orb {
+      box-shadow: 0 22px 42px rgba(188, 201, 236, 0.42), 0 0 0 10px rgba(255, 230, 240, 0.14);
+    }
+
+    .music-card[data-playing="true"] .music-orb::after {
+      animation: musicRipple 2.8s ease-out infinite;
+    }
+
+    .music-orb-vinyl {
+      position: absolute;
+      inset: 10px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,0.96) 0 9%, rgba(255,221,236,0.94) 10% 15%, rgba(210,239,255,0.82) 16% 19%, transparent 20%),
+        repeating-radial-gradient(circle at center, rgba(255,255,255,0.18) 0 2px, rgba(184, 158, 229, 0.1) 2px 4px, rgba(255,255,255,0.05) 4px 7px),
+        linear-gradient(145deg, rgba(255, 246, 250, 0.96), rgba(221, 242, 255, 0.88));
+      box-shadow: inset 0 1px 10px rgba(255,255,255,0.72), 0 10px 18px rgba(199, 208, 239, 0.24);
+    }
+
+    .music-orb-vinyl::before,
+    .music-orb-vinyl::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .music-orb-vinyl::before {
+      inset: 8px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.72), transparent 42%);
+      mix-blend-mode: screen;
+    }
+
+    .music-orb-vinyl::after {
+      inset: 24px;
+      background: radial-gradient(circle, rgba(255,255,255,0.92), rgba(255,228,239,0.72));
+      box-shadow: 0 0 0 4px rgba(255,255,255,0.38);
+    }
+
+    .music-card[data-playing="true"] .music-orb-vinyl {
+      animation: discSpin 7s linear infinite;
+    }
+
+    .music-orb-symbol {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      color: #775f8c;
+      font-size: 18px;
+      line-height: 1;
     }
 
     .music-trigger {
       position: relative;
       width: 62px;
       height: 62px;
-      border: none;
       border-radius: 50%;
       background: linear-gradient(145deg, rgba(255, 239, 247, 0.98), rgba(215, 242, 255, 0.92));
       box-shadow: 0 14px 28px rgba(197, 207, 239, 0.26);
-      cursor: pointer;
-      transition: transform .24s ease, box-shadow .24s ease;
+    }
+
+    .music-trigger:hover,
+    .music-dismiss:hover {
+      transform: translateY(-1px);
     }
 
     .music-trigger:hover {
-      transform: scale(1.03);
       box-shadow: 0 18px 34px rgba(197, 207, 239, 0.34);
     }
 
+    .music-orb:focus-visible,
     .music-trigger:focus-visible,
     .music-loop:focus-visible,
-    .music-volume:focus-visible {
+    .music-volume:focus-visible,
+    .music-dismiss:focus-visible {
       outline: 2px solid rgba(141, 126, 163, 0.45);
       outline-offset: 3px;
     }
@@ -572,6 +701,17 @@
       color: #775f8c;
       font-size: 22px;
       line-height: 1;
+    }
+
+    .music-dismiss {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(229, 233, 247, 0.92);
+      color: #8a7ea2;
+      font-size: 18px;
+      box-shadow: 0 10px 20px rgba(207, 214, 238, 0.14);
     }
 
     .music-copy {
@@ -1146,6 +1286,11 @@
         100% { transform: scale(1.24); opacity: 0; }
       }
 
+      @keyframes discSpin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
       @media (max-width: 1160px) {
         .hero,
         .sheet-grid,
@@ -1187,19 +1332,34 @@
         .hero-actions { flex-direction: column; }
         .soul-panel { padding: 22px; }
         .music-card {
-          left: 12px;
           right: 12px;
           bottom: 12px;
-          width: auto;
+          width: 64px;
+          height: 64px;
+        }
+        .music-card-inner {
+          width: min(304px, calc(100vw - 24px));
+          bottom: 76px;
           border-radius: 24px;
         }
-        .music-head {
+        .music-head-main {
           grid-template-columns: 56px 1fr;
           gap: 12px;
         }
         .music-trigger {
           width: 56px;
           height: 56px;
+        }
+        .music-orb {
+          width: 64px;
+          height: 64px;
+        }
+        .music-orb-vinyl {
+          inset: 8px;
+        }
+        .music-dismiss {
+          width: 34px;
+          height: 34px;
         }
       }
     </style>
@@ -1210,17 +1370,20 @@
       <source src="assets/audio/remembrance-heart.m4a" type="audio/mp4" />
     </audio>
 
-    <aside class="music-card" id="musicCard" data-playing="false">
-      <div class="music-card-inner">
+    <aside class="music-card" id="musicCard" data-playing="false" data-expanded="false">
+      <div class="music-card-inner" id="musicPanel">
         <div class="music-head">
-          <button class="music-trigger" id="musicToggle" type="button" aria-label="播放页面音乐">
-            <span class="music-icon" id="musicIcon">▶</span>
-          </button>
-          <div class="music-copy">
-            <span class="music-kicker">memory player</span>
-            <strong class="music-title">心忆 / page music</strong>
-            <p id="musicMicrocopy">点击开启心忆，让这一页更轻一点。</p>
+          <div class="music-head-main">
+            <button class="music-trigger" id="musicToggle" type="button" aria-label="播放页面音乐">
+              <span class="music-icon" id="musicIcon">▶</span>
+            </button>
+            <div class="music-copy">
+              <span class="music-kicker">memory player</span>
+              <strong class="music-title">心忆 / page music</strong>
+              <p id="musicMicrocopy">点击开启心忆，让这一页更轻一点。</p>
+            </div>
           </div>
+          <button class="music-dismiss" id="musicDismiss" type="button" aria-label="收起页面音乐卡片">×</button>
         </div>
         <div class="music-status" id="musicStatus">当前：静候唤醒</div>
         <div class="music-controls">
@@ -1235,6 +1398,10 @@
         </div>
         <p class="music-note">默认不会突然出声；当前主源为 `ogg`，并预留了 `mp3 / m4a` 备用路径。</p>
       </div>
+      <button class="music-orb" id="musicOrb" type="button" aria-expanded="false" aria-controls="musicPanel" aria-label="展开并播放页面音乐">
+        <span class="music-orb-vinyl" aria-hidden="true"></span>
+        <span class="music-orb-symbol" id="musicOrbSymbol">▶</span>
+      </button>
     </aside>
 
     <section class="ideal-wrap" id="ideal">
@@ -1309,18 +1476,23 @@
     (() => {
       const audio = document.getElementById("pageMusic");
       const card = document.getElementById("musicCard");
+      const orb = document.getElementById("musicOrb");
+      const orbSymbol = document.getElementById("musicOrbSymbol");
       const toggle = document.getElementById("musicToggle");
+      const dismiss = document.getElementById("musicDismiss");
       const icon = document.getElementById("musicIcon");
       const status = document.getElementById("musicStatus");
       const microcopy = document.getElementById("musicMicrocopy");
       const volume = document.getElementById("musicVolume");
       const loop = document.getElementById("musicLoop");
       const loopText = document.getElementById("musicLoopText");
+      const desktopMedia = window.matchMedia("(min-width: 861px)");
 
       const storageKeys = {
         enabled: "worldStructureMusicEnabled",
         volume: "worldStructureMusicVolume",
-        loop: "worldStructureMusicLoop"
+        loop: "worldStructureMusicLoop",
+        expandedDesktop: "worldStructureMusicExpandedDesktop"
       };
 
       const copybook = {
@@ -1335,11 +1507,43 @@
       const savedVolume = parseFloat(localStorage.getItem(storageKeys.volume));
       const savedLoop = localStorage.getItem(storageKeys.loop) === "true";
       const savedEnabled = localStorage.getItem(storageKeys.enabled) === "true";
+      const savedExpandedDesktop = localStorage.getItem(storageKeys.expandedDesktop);
       const initialVolume = Number.isFinite(savedVolume) ? savedVolume : 0.4;
 
       audio.volume = initialVolume;
       audio.loop = savedLoop;
       volume.value = String(initialVolume);
+
+      function isExpanded() {
+        return card.dataset.expanded === "true";
+      }
+
+      function setExpanded(next, options = {}) {
+        const { persist = true } = options;
+
+        card.dataset.expanded = next ? "true" : "false";
+        orb.setAttribute("aria-expanded", String(next));
+
+        if (desktopMedia.matches && persist) {
+          localStorage.setItem(storageKeys.expandedDesktop, String(next));
+        }
+
+        syncOrbState();
+      }
+
+      function syncOrbState() {
+        const expanded = isExpanded();
+        const playing = !audio.paused;
+
+        orbSymbol.textContent = expanded ? (playing ? "❚❚" : "▶") : (playing ? "♫" : "▶");
+
+        if (!expanded) {
+          orb.setAttribute("aria-label", playing ? "展开页面音乐控制" : "展开并播放页面音乐");
+          return;
+        }
+
+        orb.setAttribute("aria-label", playing ? "暂停页面音乐" : "播放页面音乐");
+      }
 
       function setLoopUI() {
         loop.setAttribute("aria-pressed", String(audio.loop));
@@ -1352,9 +1556,31 @@
         icon.textContent = next.playing ? "❚❚" : "▶";
         status.textContent = next.status;
         microcopy.textContent = next.copy;
+        syncOrbState();
+      }
+
+      async function startPlayback() {
+        try {
+          await audio.play();
+          localStorage.setItem(storageKeys.enabled, "true");
+          return true;
+        } catch (error) {
+          setState({
+            playing: false,
+            status: "当前：等待一次明确点击",
+            copy: copybook.blocked
+          });
+          return false;
+        }
+      }
+
+      function stopPlayback() {
+        audio.pause();
+        localStorage.setItem(storageKeys.enabled, "false");
       }
 
       setLoopUI();
+      setExpanded(desktopMedia.matches ? savedExpandedDesktop !== "false" : false, { persist: false });
       setState({
         playing: false,
         status: savedEnabled ? "当前：已记住上次偏好" : "当前：静候唤醒",
@@ -1363,21 +1589,34 @@
 
       toggle.addEventListener("click", async () => {
         if (audio.paused) {
-          try {
-            await audio.play();
-            localStorage.setItem(storageKeys.enabled, "true");
-          } catch (error) {
-            setState({
-              playing: false,
-              status: "当前：等待一次明确点击",
-              copy: copybook.blocked
-            });
-          }
+          await startPlayback();
           return;
         }
 
-        audio.pause();
-        localStorage.setItem(storageKeys.enabled, "false");
+        stopPlayback();
+      });
+
+      orb.addEventListener("click", async () => {
+        if (!isExpanded()) {
+          setExpanded(true);
+
+          if (audio.paused) {
+            await startPlayback();
+          }
+
+          return;
+        }
+
+        if (audio.paused) {
+          await startPlayback();
+          return;
+        }
+
+        stopPlayback();
+      });
+
+      dismiss.addEventListener("click", () => {
+        setExpanded(false);
       });
 
       volume.addEventListener("input", () => {
@@ -1390,6 +1629,15 @@
         audio.loop = !audio.loop;
         localStorage.setItem(storageKeys.loop, String(audio.loop));
         setLoopUI();
+      });
+
+      desktopMedia.addEventListener("change", (event) => {
+        if (event.matches) {
+          setExpanded(localStorage.getItem(storageKeys.expandedDesktop) !== "false", { persist: false });
+          return;
+        }
+
+        setExpanded(false, { persist: false });
       });
 
       audio.addEventListener("play", () => {
@@ -1413,6 +1661,7 @@
       });
 
       audio.addEventListener("ended", () => {
+        localStorage.setItem(storageKeys.enabled, "false");
         setState({
           playing: false,
           status: "当前：这一段心忆已经播放完毕",
