@@ -114,7 +114,7 @@
       z-index: 2;
       max-width: var(--max);
       margin: 0 auto;
-      padding: 0 22px 80px;
+      padding: 0 22px 180px;
     }
 
     .topbar {
@@ -449,6 +449,269 @@
       color: rgba(183, 120, 152, 0.6);
       text-transform: uppercase;
     }
+
+    .music-card {
+      position: fixed;
+      right: 22px;
+      bottom: 20px;
+      z-index: 26;
+      width: min(320px, calc(100vw - 28px));
+      padding: 16px;
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.82), rgba(247,250,255,0.74));
+      border: 1px solid rgba(255,255,255,0.92);
+      box-shadow: 0 22px 48px rgba(189, 196, 234, 0.32);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+
+    .music-card::before,
+    .music-card::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      border-radius: 50%;
+    }
+
+    .music-card::before {
+      width: 148px;
+      height: 148px;
+      right: -46px;
+      top: -34px;
+      background: radial-gradient(circle, rgba(215, 240, 255, 0.72), transparent 70%);
+    }
+
+    .music-card::after {
+      width: 120px;
+      height: 120px;
+      left: -36px;
+      bottom: -46px;
+      background: radial-gradient(circle, rgba(255, 220, 238, 0.74), transparent 72%);
+    }
+
+    .music-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 28px 56px rgba(188, 196, 234, 0.38);
+    }
+
+    .music-card[data-playing="true"] {
+      border-color: rgba(237, 226, 247, 0.96);
+      box-shadow: 0 30px 64px rgba(188, 196, 234, 0.44);
+    }
+
+    .music-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .music-head {
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .music-trigger {
+      position: relative;
+      width: 62px;
+      height: 62px;
+      border: none;
+      border-radius: 50%;
+      background: linear-gradient(145deg, rgba(255, 239, 247, 0.98), rgba(215, 242, 255, 0.92));
+      box-shadow: 0 14px 28px rgba(197, 207, 239, 0.26);
+      cursor: pointer;
+      transition: transform .24s ease, box-shadow .24s ease;
+    }
+
+    .music-trigger:hover {
+      transform: scale(1.03);
+      box-shadow: 0 18px 34px rgba(197, 207, 239, 0.34);
+    }
+
+    .music-trigger:focus-visible,
+    .music-loop:focus-visible,
+    .music-volume:focus-visible {
+      outline: 2px solid rgba(141, 126, 163, 0.45);
+      outline-offset: 3px;
+    }
+
+    .music-trigger::before,
+    .music-trigger::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .music-trigger::before {
+      inset: 5px;
+      border: 1px dashed rgba(255,255,255,0.86);
+    }
+
+    .music-trigger::after {
+      opacity: 0;
+      border: 1px solid rgba(255,255,255,0.92);
+      transform: scale(0.84);
+    }
+
+    .music-card[data-playing="true"] .music-trigger::after {
+      opacity: 1;
+      animation: musicRipple 2.6s ease-out infinite;
+    }
+
+    .music-icon {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      color: #775f8c;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .music-copy {
+      min-width: 0;
+    }
+
+    .music-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(229, 233, 247, 0.92);
+      color: var(--rose-ink);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .music-kicker::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #fff, #ffcde1);
+      box-shadow: 0 0 0 4px rgba(255, 229, 239, 0.2);
+    }
+
+    .music-title {
+      display: block;
+      margin-top: 10px;
+      font-size: 18px;
+      color: #645c7d;
+    }
+
+    .music-copy p {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    .music-status {
+      margin-top: 14px;
+      padding: 10px 12px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.62);
+      border: 1px solid rgba(231, 236, 248, 0.92);
+      color: #7b7394;
+      font-size: 13px;
+    }
+
+    .music-controls {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .music-volume-row {
+      display: grid;
+      gap: 8px;
+    }
+
+    .music-volume-row span {
+      font-size: 12px;
+      color: #8a7ea2;
+      letter-spacing: 0.04em;
+    }
+
+    .music-volume {
+      width: 100%;
+      appearance: none;
+      height: 7px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255, 217, 234, 0.95), rgba(210, 241, 255, 0.95));
+      outline: none;
+      border: 1px solid rgba(239, 241, 249, 0.96);
+      box-shadow: inset 0 1px 3px rgba(255,255,255,0.65);
+    }
+
+    .music-volume::-webkit-slider-thumb {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.96);
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(253, 223, 238, 0.96));
+      box-shadow: 0 6px 12px rgba(194, 204, 238, 0.28);
+      cursor: pointer;
+    }
+
+    .music-volume::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border: none;
+      border-radius: 50%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(253, 223, 238, 0.96));
+      box-shadow: 0 6px 12px rgba(194, 204, 238, 0.28);
+      cursor: pointer;
+    }
+
+    .music-loop {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(231, 236, 248, 0.92);
+      background: rgba(255,255,255,0.7);
+      color: #7e7596;
+      cursor: pointer;
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+    }
+
+    .music-loop:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(207, 214, 238, 0.18);
+    }
+
+    .music-loop[aria-pressed="true"] {
+      background: linear-gradient(135deg, rgba(255, 238, 247, 0.95), rgba(217, 242, 255, 0.92));
+      color: #715f87;
+    }
+
+    .music-loop-mark {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,205,225,0.96));
+      box-shadow: 0 0 0 5px rgba(255, 226, 238, 0.18);
+    }
+
+    .music-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #9a91ad;
+      line-height: 1.55;
+    }
   </style>
   <div class="petal-field" aria-hidden="true">
     <span class="petal"></span>
@@ -489,7 +752,7 @@
           <h1>给复杂失衡留下一页会发光的结构手记。</h1>
           <p class="hero-subline">world-structure-skill 仍然是一套清楚、可靠、可执行的结构化诊断工具，只是这一次，它被放进了更柔和、更有记忆感的页面语言里。</p>
           <p class="hero-body">它并不打算把现实压成冰冷表格，也不急着给复杂对象贴结论。它更关心的是，当一个团队、一段关系、一个项目、一个组织开始变形、漂移、失真时，我们能不能先把它重新读成结构。</p>
-          <p class="hero-body">于是锚点、约束、支持链、角色错位、阶段变化与干预优先级，被写成一张可以回头翻阅的纸页。它不是为了制造距离，而是为了让判断更诚实，让修复更可见。</p>
+          <p class="hero-body">于是锚点、约束、推力链、角色错位、阶段变化与干预优先级，被写成一张可以回头翻阅的纸页。它不是为了制造距离，而是为了让判断更诚实，让修复更可见。</p>
           <div class="memory-line">
             <strong>世界模型不是冰冷的结构论。它在尽量说清结构之后，仍然为爱留下边界。</strong>
             <small>这份温柔不是软塌的退让，而是一种对复杂现实仍愿意保持诚实与光感的姿态。</small>
@@ -562,7 +825,7 @@
           <div class="diagnosis-stack">
             <article class="diagnosis-card">
               <strong>先退回结构</strong>
-              <p>不急着被症状和个体动机带走，而是先判断锚点、约束、支持链和角色关系究竟出了什么问题。</p>
+              <p>不急着被症状和个体动机带走，而是先判断锚点、约束、推力链和角色关系究竟出了什么问题。</p>
             </article>
             <article class="diagnosis-card">
               <strong>再识别演化</strong>
@@ -585,7 +848,7 @@
           <div class="diagnosis-stack">
             <article class="diagnosis-card">
               <strong>团队为什么越来越忙，却越来越推不动</strong>
-              <p>问题可能不在努力，而在锚点涣散、支持链断裂或干预顺序错位。</p>
+              <p>问题可能不在努力，而在锚点涣散、推力链断裂或干预顺序错位。</p>
             </article>
             <article class="diagnosis-card">
               <strong>关系为什么没有直接崩，却越来越空</strong>
@@ -877,6 +1140,12 @@
         100% { transform: translate3d(-22px, 112vh, 0) rotate(200deg); opacity: 0.08; }
       }
 
+      @keyframes musicRipple {
+        0% { transform: scale(0.84); opacity: 0.65; }
+        70% { transform: scale(1.22); opacity: 0; }
+        100% { transform: scale(1.24); opacity: 0; }
+      }
+
       @media (max-width: 1160px) {
         .hero,
         .sheet-grid,
@@ -895,7 +1164,7 @@
       }
 
       @media (max-width: 820px) {
-        .shell { padding: 0 14px 60px; }
+        .shell { padding: 0 14px 200px; }
         .topbar-inner,
         .hero,
         .sheet-grid,
@@ -917,8 +1186,56 @@
         .button { width: 100%; }
         .hero-actions { flex-direction: column; }
         .soul-panel { padding: 22px; }
+        .music-card {
+          left: 12px;
+          right: 12px;
+          bottom: 12px;
+          width: auto;
+          border-radius: 24px;
+        }
+        .music-head {
+          grid-template-columns: 56px 1fr;
+          gap: 12px;
+        }
+        .music-trigger {
+          width: 56px;
+          height: 56px;
+        }
       }
     </style>
+
+    <audio id="pageMusic" preload="none" playsinline>
+      <source src="assets/audio/remembrance-heart.ogg" type="audio/ogg" />
+      <source src="assets/audio/remembrance-heart.mp3" type="audio/mpeg" />
+      <source src="assets/audio/remembrance-heart.m4a" type="audio/mp4" />
+    </audio>
+
+    <aside class="music-card" id="musicCard" data-playing="false">
+      <div class="music-card-inner">
+        <div class="music-head">
+          <button class="music-trigger" id="musicToggle" type="button" aria-label="播放页面音乐">
+            <span class="music-icon" id="musicIcon">▶</span>
+          </button>
+          <div class="music-copy">
+            <span class="music-kicker">memory player</span>
+            <strong class="music-title">心忆 / page music</strong>
+            <p id="musicMicrocopy">点击开启心忆，让这一页更轻一点。</p>
+          </div>
+        </div>
+        <div class="music-status" id="musicStatus">当前：静候唤醒</div>
+        <div class="music-controls">
+          <label class="music-volume-row" for="musicVolume">
+            <span>音量</span>
+            <input class="music-volume" id="musicVolume" type="range" min="0" max="1" step="0.05" value="0.4" />
+          </label>
+          <button class="music-loop" id="musicLoop" type="button" aria-pressed="false">
+            <span class="music-loop-mark" aria-hidden="true"></span>
+            <span id="musicLoopText">循环关闭</span>
+          </button>
+        </div>
+        <p class="music-note">默认不会突然出声；当前主源为 `ogg`，并预留了 `mp3 / m4a` 备用路径。</p>
+      </div>
+    </aside>
 
     <section class="ideal-wrap" id="ideal">
       <article class="ideal-panel">
@@ -938,7 +1255,7 @@
       <aside class="ideal-notes">
         <article class="ideal-note">
           <strong>它想看的，不是口号有多高</strong>
-          <p>而是一个理想进入现实后，需要怎样的锚点、反馈、支持链和执行纪律，才能不被迅速耗空。</p>
+          <p>而是一个理想进入现实后，需要怎样的锚点、反馈、推力链和执行纪律，才能不被迅速耗空。</p>
         </article>
         <article class="ideal-note">
           <strong>它也不把失真当成宿命</strong>
@@ -988,5 +1305,129 @@
       world-structure-skill · 柔和、发光、记忆感、但仍然清楚可用的结构工具页
     </footer>
   </div>
+  <script>
+    (() => {
+      const audio = document.getElementById("pageMusic");
+      const card = document.getElementById("musicCard");
+      const toggle = document.getElementById("musicToggle");
+      const icon = document.getElementById("musicIcon");
+      const status = document.getElementById("musicStatus");
+      const microcopy = document.getElementById("musicMicrocopy");
+      const volume = document.getElementById("musicVolume");
+      const loop = document.getElementById("musicLoop");
+      const loopText = document.getElementById("musicLoopText");
+
+      const storageKeys = {
+        enabled: "worldStructureMusicEnabled",
+        volume: "worldStructureMusicVolume",
+        loop: "worldStructureMusicLoop"
+      };
+
+      const copybook = {
+        idle: "点击开启心忆，让这一页更轻一点。",
+        remembered: "上次的偏好还在，想继续时轻轻点一下。",
+        playing: "心忆正在流动，这一页也有了更柔和的呼吸。",
+        paused: "音乐暂时停在这里，记忆还没有走远。",
+        blocked: "浏览器需要一次明确点击，才能让音乐真正开始。",
+        error: "没有找到可播放的音频文件，请检查 audio 路径或备用格式。"
+      };
+
+      const savedVolume = parseFloat(localStorage.getItem(storageKeys.volume));
+      const savedLoop = localStorage.getItem(storageKeys.loop) === "true";
+      const savedEnabled = localStorage.getItem(storageKeys.enabled) === "true";
+      const initialVolume = Number.isFinite(savedVolume) ? savedVolume : 0.4;
+
+      audio.volume = initialVolume;
+      audio.loop = savedLoop;
+      volume.value = String(initialVolume);
+
+      function setLoopUI() {
+        loop.setAttribute("aria-pressed", String(audio.loop));
+        loopText.textContent = audio.loop ? "循环开启" : "循环关闭";
+      }
+
+      function setState(next) {
+        card.dataset.playing = next.playing ? "true" : "false";
+        toggle.setAttribute("aria-label", next.playing ? "暂停页面音乐" : "播放页面音乐");
+        icon.textContent = next.playing ? "❚❚" : "▶";
+        status.textContent = next.status;
+        microcopy.textContent = next.copy;
+      }
+
+      setLoopUI();
+      setState({
+        playing: false,
+        status: savedEnabled ? "当前：已记住上次偏好" : "当前：静候唤醒",
+        copy: savedEnabled ? copybook.remembered : copybook.idle
+      });
+
+      toggle.addEventListener("click", async () => {
+        if (audio.paused) {
+          try {
+            await audio.play();
+            localStorage.setItem(storageKeys.enabled, "true");
+          } catch (error) {
+            setState({
+              playing: false,
+              status: "当前：等待一次明确点击",
+              copy: copybook.blocked
+            });
+          }
+          return;
+        }
+
+        audio.pause();
+        localStorage.setItem(storageKeys.enabled, "false");
+      });
+
+      volume.addEventListener("input", () => {
+        const nextVolume = parseFloat(volume.value);
+        audio.volume = nextVolume;
+        localStorage.setItem(storageKeys.volume, String(nextVolume));
+      });
+
+      loop.addEventListener("click", () => {
+        audio.loop = !audio.loop;
+        localStorage.setItem(storageKeys.loop, String(audio.loop));
+        setLoopUI();
+      });
+
+      audio.addEventListener("play", () => {
+        setState({
+          playing: true,
+          status: "当前：记忆流动中",
+          copy: copybook.playing
+        });
+      });
+
+      audio.addEventListener("pause", () => {
+        if (audio.ended) {
+          return;
+        }
+
+        setState({
+          playing: false,
+          status: "当前：已暂停",
+          copy: copybook.paused
+        });
+      });
+
+      audio.addEventListener("ended", () => {
+        setState({
+          playing: false,
+          status: "当前：这一段心忆已经播放完毕",
+          copy: copybook.paused
+        });
+      });
+
+      audio.addEventListener("error", () => {
+        setState({
+          playing: false,
+          status: "当前：音频未就绪",
+          copy: copybook.error
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
