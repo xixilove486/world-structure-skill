@@ -1,33 +1,49 @@
+<p align="center">
+  <img src="docs/assets/readme-banner.svg" alt="世界结构.skill 的 README 顶部横幅：粉蓝奶白的手记式结构诊断封面" width="100%" />
+</p>
+
 <div align="center">
 
 # 世界结构.skill
 
-### 不是解释万物，而是看清复杂对象的结构。
+### 给 AI 和人类共同使用的一册结构手记
+**不是解释万物，而是陪你把复杂对象慢慢看清。**
 
 <br>
 
-![许可证](https://img.shields.io/badge/License-MIT-f5c542?style=flat-square)
-![技能类型](https://img.shields.io/badge/技能-结构分析-7c3aed?style=flat-square)
-![关注重点](https://img.shields.io/badge/重点-隐藏结构-2563eb?style=flat-square)
-![适用范围](https://img.shields.io/badge/范围-团队%20%7C%20关系%20%7C%20项目-059669?style=flat-square)
-![状态](https://img.shields.io/badge/状态-持续迭代-black?style=flat-square)
+![许可证](https://img.shields.io/badge/License-MIT-f3d7e6?style=flat-square&labelColor=fff7fb&color=f3d7e6)
+![技能类型](https://img.shields.io/badge/技能-结构诊断-d8ebff?style=flat-square&labelColor=fafcff&color=d8ebff)
+![关注重点](https://img.shields.io/badge/重点-推力链与隐藏结构-e4ddff?style=flat-square&labelColor=fffaff&color=e4ddff)
+![状态](https://img.shields.io/badge/状态-持续迭代-f8efcf?style=flat-square&labelColor=fffdf6&color=f8efcf)
 
 <p align="center">
-  <a href="https://xixilove486.github.io/world-structure-skill/"><strong>项目介绍页</strong></a>
+  <a href="https://xixilove486.github.io/world-structure-skill/"><strong>在线介绍页</strong></a>
+  ·
+  <a href="#why"><strong>为什么需要</strong></a>
+  ·
+  <a href="#love"><strong>爱的边界</strong></a>
+  ·
+  <a href="#install"><strong>安装方式</strong></a>
+  ·
+  <a href="skills/world-structure/SKILL.md"><strong>Skill 入口</strong></a>
 </p>
+
+<p align="center"><sub>花朵、记忆、涟漪与推演，不是为了把现实柔化，而是为了在复杂现实里保持清醒。</sub></p>
 
 </div>
 
 ---
 
-> [!NOTE]
+> [!IMPORTANT]
 > **世界结构.skill** 不是“解释万物”的终极神谕。  
-> 它是一套给 AI 和人都能使用的**结构分析工具**：  
-> 从**锚点、约束、角色、支持链、扰动、熵增与演化阶段**出发，判断一个系统如何形成、维持、失衡、转折、更新与崩解。
+> 它更像一册可以反复翻阅的**结构诊断手记**：  
+> 当团队、关系、项目、组织或公共议题开始失衡时，陪你从**锚点、约束、角色、推力链、扰动、熵增与演化阶段**出发，慢慢判断一个系统如何形成、维持、失衡、转折、更新与崩解。
 
+<a id="why"></a>
 ## 为什么需要这个 skill？
 
-人们分析问题时，往往很容易掉进几个常见误区：
+人们分析问题时，往往很容易掉进几个常见误区。  
+这些误区并不总是因为不够聪明，而常常只是因为我们太容易被最显眼的部分带走。
 
 ### 1. 只看表面现象
 看到争吵，就以为问题是情绪失控。  
@@ -41,7 +57,7 @@
 这些解释有时并不完全错，但它们常常过早，而且过浅。  
 
 因为很多问题不是先由“人性恶”引起的，  
-而是由**结构失衡、角色错位、支持链断裂、阶段错判、边界失效**逐步推出来的。
+而是由**结构失衡、角色错位、推力链断裂、阶段错判、边界失效**逐步推出来的。
 
 ### 3. 忽略结构的作用
 人们很擅长讨论动机，却不擅长讨论系统。  
@@ -56,6 +72,7 @@
 
 ---
 
+<a id="what"></a>
 ## 这个 skill 能做什么？
 
 **世界结构.skill** 不是一个“人格判断器”，  
@@ -72,22 +89,23 @@
 - 看清一个制度、社群或共同体为什么会漂移、分裂、空心化，或者重新获得生机
 
 它最核心的能力，不是给出一个漂亮结论，  
-而是把复杂问题拆回几个更扎实的问题：
+而是把复杂问题拆回几个更扎实、也更值得先问的问题：
 
 - 它的锚点是什么？
 - 它的约束是什么？
 - 谁在维持，谁在推动，谁在阻塞？
-- 它靠什么获得资源、认同、记忆与支持？
+- 它的推力链从哪里来？
 - 它正被什么扰动？
 - 它处于哪个阶段？
 - 如果只能先修一处，最该修哪里？
 
 ---
 
+<a id="gain"></a>
 ## 它会带来什么提升？
 
 这个 skill 想提供的，不只是“分析工具”，  
-更是一种更稳的观察方式。
+更是一种更稳、更不容易被表象带跑的观察方式。
 
 它会帮助你逐步获得几种能力：
 
@@ -114,10 +132,18 @@
 
 ---
 
+<a id="love"></a>
 ## 关于“爱”的边界
 
-> [!NOTE]
-> **爱不是用来替代理论解释的，而是用来标记理论解释的边界。**
+> [!IMPORTANT]
+> ### 爱不是用来替代理论解释的，而是用来标记理论解释的边界。
+>
+> 在这个模型里，**爱不是一个被随手调用的抒情词**。  
+> 它是一个**中性的、具有超越性的概念**：  
+> 不是用来跳过结构，也不是用来跳过心理，  
+> 而是用来提醒我们，理论已经尽力之后，仍然剩下的那部分行动余量，也许值得被谨慎地留给爱。
+
+<p align="center"><sub>先尽可能完成结构解释，再把无法压平的余量，谨慎地留给爱。</sub></p>
 
 也就是说：
 
@@ -143,6 +169,7 @@
 
 ---
 
+<a id="install"></a>
 ## 安装方式
 
 这个 skill 现在支持三种安装方式：
@@ -163,7 +190,8 @@ py -3 "$HOME/.codex/skills/.system/skill-installer/scripts/install-skill-from-gi
 py -3 "$HOME/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py" --repo xixilove486/world-structure-skill --path skills/world-structure
 ```
 
-安装后重启 Codex，即可识别新 skill。
+安装后重启 Codex，即可识别新 skill。  
+如果你只是想最快开始使用，优先选这一种。
 
 ### 个人安装
 
@@ -213,6 +241,7 @@ git -C "$HOME/.agents/skills/world-structure-skill" pull --ff-only
 
 ---
 
+<a id="not"></a>
 ## 它不做什么？
 
 > [!WARNING]
@@ -226,6 +255,7 @@ git -C "$HOME/.agents/skills/world-structure-skill" pull --ff-only
 
 ---
 
+<a id="axes"></a>
 ## 核心分析主轴
 
 这个 skill 默认从七个方向看系统：
@@ -235,13 +265,14 @@ git -C "$HOME/.agents/skills/world-structure-skill" pull --ff-only
 | **锚点** | 系统围绕什么在维持、追求或漂移？ |
 | **约束** | 什么在限制它？ |
 | **角色与层级** | 谁在维持、谁在推动、谁在连接、谁在阻塞？ |
-| **支持链** | 资源、信任、记忆、合法性与情感投入从哪里来？ |
+| **推力链** | 资源、信任、记忆、合法性与情感投入从哪里来？什么在持续把系统往前推、往回拉，或让它变薄、断裂？ |
 | **扰动 / 漂移 / 熵增** | 什么在让系统失真、漂移、僵化、分裂或空心化？ |
 | **阶段** | 它正处于形成、扩张、瓶颈、转型、稳定、僵化、碎裂还是更新尝试？ |
 | **干预优先级** | 先修哪里最值？ |
 
 ---
 
+<a id="how-to-use"></a>
 ## 使用方式
 
 ### 给 AI 的使用方式
@@ -259,7 +290,13 @@ git -C "$HOME/.agents/skills/world-structure-skill" pull --ff-only
 
 ---
 
+<a id="repo"></a>
 ## 仓库结构
+
+可以把这个仓库理解成两层：
+
+- 根目录是封面、目录与说明页
+- `skills/world-structure/` 是真正给 Codex 安装和调用的 skill 主体
 
 ```text
 world-structure-skill/
@@ -302,6 +339,7 @@ world-structure-skill/
 
 ---
 
+<a id="references"></a>
 ## 长文参考层
 
 这个仓库现在包含三种长文结构：
@@ -337,6 +375,7 @@ world-structure-skill/
 
 ---
 
+<a id="principles"></a>
 ## 设计原则
 
 | 原则 | 含义 |
@@ -348,6 +387,7 @@ world-structure-skill/
 
 ---
 
+<a id="good-output"></a>
 ## 一个好输出长什么样？
 
 ```text
@@ -359,9 +399,13 @@ world-structure-skill/
 ```
 
 简洁、清醒、不武器化。  
-这比“宏大、激烈、像在审判世界”的输出更有价值。
+这比“宏大、激烈、像在审判世界”的输出更有价值。  
+一个好的输出更像一页可靠的诊断手记，而不是一份居高临下的判词。
 
 ---
+
+<a id="ideal"></a>
+## 理想与现实
 
 > [!NOTE]
 > 本模型不预设任何宏大理想必然失败，也不预设任何终极目标会自动实现。
@@ -372,6 +416,7 @@ world-structure-skill/
 >
 > 因此，世界模型不应被表述为对理想的否定，而应被表述为对理想实现条件的严厉审计。
 
+<a id="position"></a>
 ## 项目定位
 
 > [!TIP]
@@ -383,6 +428,7 @@ world-structure-skill/
 
 ---
 
+<a id="last-line"></a>
 ## 最后一句
 
 经过不断迭代与验证，我越来越确认一件事：  
