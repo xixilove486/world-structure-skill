@@ -13,7 +13,7 @@
 ![状态](https://img.shields.io/badge/状态-持续迭代-black?style=flat-square)
 
 <p align="center">
-  <a href="https://xixilove486.github.io/world-structure-skill/#problem"><strong>项目介绍页</strong></a>
+  <a href="https://xixilove486.github.io/world-structure-skill/"><strong>项目介绍页</strong></a>
 </p>
 
 </div>
