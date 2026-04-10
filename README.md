@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
 
 # 世界结构.skill
 
@@ -245,10 +245,10 @@ git -C "$HOME/.agents/skills/world-structure-skill" pull --ff-only
 ## 使用方式
 
 ### 给 AI 的使用方式
-- 把 `SKILL.md` 当成轻量主入口
-- 把 `resources/` 当成概念与长文参考层
-- 把 `templates/` 当成输出模板
-- 把 `examples/` 当成风格示范
+- 把 `skills/world-structure/SKILL.md` 当成轻量主入口
+- 把 `skills/world-structure/resources/` 当成概念与长文参考层
+- 把 `skills/world-structure/templates/` 当成输出模板
+- 把 `skills/world-structure/examples/` 当成风格示范
 
 ### 给读者的阅读顺序
 1. `README.md`
