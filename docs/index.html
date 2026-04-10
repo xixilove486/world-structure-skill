@@ -1,396 +1,284 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>世界结构.skill</title>
-  <meta name="description" content="一个用于分析团队、关系、项目、组织与公共议题中复杂失衡问题的结构化诊断工具。" />
+  <title>世界模型 | 给 AI 和人类共同使用的结构地图</title>
+  <meta name="description" content="世界模型是一种给 AI 和人类共同使用的结构地图，用来理解复杂系统如何形成、维持、失衡、漂移与更新。" />
   <style>
     :root{
-      --bg:#0b1020;
-      --bg2:#121a2f;
-      --panel:rgba(255,255,255,.08);
-      --panel2:rgba(255,255,255,.05);
-      --line:rgba(255,255,255,.12);
-      --text:#f8fafc;
-      --muted:#cbd5e1;
-      --accent:#8b5cf6;
-      --accent2:#38bdf8;
-      --accent3:#22c55e;
-      --max:1140px;
-      --radius:24px;
-      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --paper:#efe6d3;
+      --paper-deep:#dccfb6;
+      --ink:#1b140f;
+      --muted:#5b4b3f;
+      --red:#7c1f1f;
+      --red-deep:#541010;
+      --gold:#9c7440;
+      --line:rgba(44,29,20,.18);
+      --panel:rgba(255,250,242,.78);
+      --shadow:0 20px 60px rgba(41,26,18,.18);
+      --max:1180px;
+      --radius:26px;
     }
     *{box-sizing:border-box}
-    html,body{
-      margin:0;padding:0;
+    html,body{margin:0;padding:0}
+    body{
+      font:16px/1.8 "Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;
+      color:var(--ink);
       background:
-        radial-gradient(circle at 12% 18%, rgba(139,92,246,.18), transparent 28%),
-        radial-gradient(circle at 84% 28%, rgba(56,189,248,.15), transparent 26%),
-        radial-gradient(circle at 50% 88%, rgba(34,197,94,.10), transparent 30%),
-        linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
-      color:var(--text);
-      font:16px/1.72 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+        radial-gradient(circle at top left, rgba(124,31,31,.14), transparent 28%),
+        radial-gradient(circle at 85% 12%, rgba(156,116,64,.16), transparent 24%),
+        linear-gradient(180deg, rgba(255,248,238,.96), rgba(235,224,204,.98)),
+        var(--paper);
     }
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
     .nav{
       position:sticky;top:0;z-index:20;
-      backdrop-filter:blur(14px);
-      background:rgba(11,16,32,.56);
+      backdrop-filter:blur(12px);
+      background:rgba(239,230,211,.84);
       border-bottom:1px solid var(--line);
     }
     .nav-inner{
-      max-width:var(--max);margin:0 auto;padding:14px 20px;
-      display:flex;justify-content:space-between;align-items:center;gap:16px;
+      max-width:var(--max);margin:0 auto;padding:14px 22px;
+      display:flex;justify-content:space-between;align-items:center;gap:20px;
     }
-    .brand{font-weight:800;letter-spacing:.02em}
-    .nav-links{display:flex;gap:16px;color:var(--muted);font-size:14px;flex-wrap:wrap}
-    .hero{padding:56px 0 20px}
-    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    .brand{font-weight:800;letter-spacing:.08em;font-size:15px}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+    .hero{padding:48px 0 24px}
+    .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:22px}
     .card{
-      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      background:var(--panel);
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
     }
-    .hero-copy{padding:34px}
+    .hero-main{padding:38px}
     .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 12px;border-radius:999px;
-      background:rgba(255,255,255,.06);border:1px solid var(--line);
-      color:var(--muted);font-size:13px
+      display:inline-flex;align-items:center;
+      padding:8px 14px;border-radius:999px;
+      background:rgba(124,31,31,.08);
+      border:1px solid rgba(124,31,31,.14);
+      color:var(--red);font-size:13px;font-weight:700;letter-spacing:.08em;
     }
     h1{
-      margin:16px 0 10px;
-      font-size:clamp(34px,5vw,62px);
-      line-height:1.02;letter-spacing:-.03em;
+      margin:18px 0 12px;
+      font-size:clamp(38px,6vw,74px);
+      line-height:1.02;letter-spacing:-.04em;
+      max-width:11ch;
     }
-    .subline{margin:0;color:#e2e8f0;font-size:clamp(18px,2vw,24px);font-weight:700}
-    .lede{margin:18px 0 0;color:var(--muted);font-size:17px;max-width:66ch}
-    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-    .badge{
-      padding:8px 12px;border-radius:999px;
-      background:rgba(255,255,255,.07);border:1px solid var(--line);
-      font-size:13px;color:#e5e7eb
-    }
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .subline{margin:0;font-size:clamp(19px,2.3vw,28px);font-weight:700;color:var(--red-deep)}
+    .lede{margin:20px 0 0;max-width:39em;color:var(--muted);font-size:17px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
-      padding:12px 16px;border-radius:16px;border:1px solid var(--line);font-weight:700
+      padding:13px 18px;border-radius:16px;border:1px solid var(--line);font-weight:700
     }
-    .btn.primary{
-      background:linear-gradient(135deg,var(--accent),#6d28d9);
-      box-shadow:0 10px 30px rgba(139,92,246,.28)
-    }
-    .btn.secondary{background:rgba(255,255,255,.06)}
-    .hero-side{padding:22px;display:grid;gap:14px}
-    .mini{
-      padding:18px;border-radius:18px;
-      background:rgba(255,255,255,.04);border:1px solid var(--line)
-    }
-    .mini h3{margin:0 0 8px;font-size:17px}
+    .btn.primary{background:linear-gradient(135deg,var(--red),var(--red-deep));color:#fff;border-color:transparent}
+    .btn.secondary{background:rgba(255,255,255,.45)}
+    .hero-side{padding:24px;display:grid;gap:14px}
+    .mini{padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.42)}
+    .mini h3{margin:0 0 8px;font-size:18px}
     .mini p{margin:0;color:var(--muted);font-size:14px}
-    .section{padding:22px 0}
-    .kicker{
-      color:#a5b4fc;font-weight:700;letter-spacing:.08em;
-      text-transform:uppercase;font-size:12px;margin-bottom:10px
-    }
-    .section h2{
-      margin:0 0 12px;
-      font-size:clamp(24px,3vw,36px);
-      line-height:1.1;letter-spacing:-.02em
-    }
-    .lead{margin:0;color:var(--muted);max-width:72ch}
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:20px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
-    .grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:20px}
-    .panel{padding:22px}
-    .panel h3{margin:0 0 8px;font-size:20px}
+    .quote{padding:22px 24px;background:linear-gradient(180deg, rgba(124,31,31,.06), rgba(255,255,255,.55));border:1px solid var(--line);border-radius:18px}
+    .quote strong{display:block;font-size:21px;line-height:1.5}
+    .quote small{display:block;margin-top:10px;color:var(--muted);font-size:14px}
+    .section{padding:26px 0}
+    .kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:10px}
+    .section h2{margin:0 0 14px;font-size:clamp(25px,3vw,40px);line-height:1.1;letter-spacing:-.02em}
+    .lead{margin:0;max-width:44em;color:var(--muted)}
+    .grid-2,.grid-3{display:grid;gap:18px;margin-top:22px}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .panel{padding:24px}
+    .panel h3{margin:0 0 10px;font-size:20px}
     .panel p{margin:0;color:var(--muted)}
-    .case{
-      padding:18px;border-radius:18px;
-      background:rgba(255,255,255,.04);border:1px solid var(--line)
-    }
-    .case .tag{
-      color:#a5b4fc;font-size:12px;font-weight:700;
-      letter-spacing:.08em;text-transform:uppercase
-    }
-    .case .line{margin-top:8px}
-    .case .muted{color:var(--muted)}
-    .case .strong{font-weight:700}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-    .chip{
-      padding:6px 10px;border-radius:999px;
-      background:rgba(255,255,255,.06);border:1px solid var(--line);
-      font-size:12px;color:#e5e7eb
-    }
-    .output{
-      padding:18px;border-radius:18px;
-      background:rgba(255,255,255,.04);border:1px solid var(--line);
-      min-height:148px
-    }
-    .output h3{margin:0 0 6px;font-size:16px}
-    .output p{margin:0;color:var(--muted);font-size:14px}
-    .statement{
-      padding:26px 28px;
-      font-size:clamp(18px,2vw,25px);
-      line-height:1.58;letter-spacing:-.02em
-    }
-    .statement small{
-      display:block;margin-top:12px;color:var(--muted);font-size:14px;line-height:1.72
-    }
-    .notice{
-      padding:18px 20px;
-      border-radius:18px;
-      background:rgba(255,255,255,.04);border:1px solid var(--line);
-      color:var(--muted)
-    }
-    .footer{padding:36px 0 56px;color:var(--muted);font-size:14px}
-    @media (max-width: 980px){
-      .hero-grid,.grid-2,.grid-3,.grid-5{grid-template-columns:1fr}
-      .hero{padding-top:34px}
-      .hero-copy,.hero-side{padding:24px}
+    .panel ul{margin:12px 0 0 18px;padding:0;color:var(--muted)}
+    .statement{padding:28px 30px;font-size:clamp(18px,2vw,26px);line-height:1.7}
+    .statement small{display:block;margin-top:14px;font-size:14px;color:var(--muted);line-height:1.8}
+    .axis{padding:20px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.42)}
+    .axis h3{margin:0 0 8px;font-size:19px}
+    .axis p{margin:0;color:var(--muted);font-size:14px}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .chip{padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:rgba(124,31,31,.05);font-size:12px;color:var(--red-deep)}
+    .footer{padding:38px 0 56px;color:var(--muted);font-size:14px}
+    @media (max-width:980px){
+      .hero-grid,.grid-2,.grid-3{grid-template-columns:1fr}
       .nav-links{display:none}
+      .hero-main,.hero-side,.panel,.statement{padding:24px}
+      .hero{padding-top:32px}
     }
   </style>
 </head>
 <body>
   <nav class="nav">
     <div class="nav-inner">
-      <div class="brand">世界结构.skill</div>
+      <div class="brand">世界模型</div>
       <div class="nav-links">
-        <a href="#cases">3 秒看懂</a>
-        <a href="#method">怎么分析</a>
-        <a href="#outputs">输出什么</a>
-        <a href="#boundary">边界</a>
+        <a href="#what">这是什么</a>
+        <a href="#map">给谁的地图</a>
+        <a href="#axes">七个主轴</a>
+        <a href="#conclusion">重要结论</a>
+        <a href="#install">使用入口</a>
       </div>
     </div>
   </nav>
 
   <header class="hero wrap">
     <div class="hero-grid">
-      <section class="card hero-copy">
-        <div class="eyebrow">结构化诊断工具</div>
-        <h1>不是解释万物，<br>而是看清复杂对象的结构。</h1>
-        <p class="subline">适合分析团队、关系、项目、组织与公共议题中的复杂失衡问题。</p>
+      <section class="card hero-main">
+        <div class="eyebrow">结构地图 / 世界观工具 / AI 与人类共用</div>
+        <h1>世界模型</h1>
+        <p class="subline">给 AI 和人类共同使用的结构地图。</p>
         <p class="lede">
-          这是一个用于识别系统为何失衡、卡住、漂移、僵化或碎裂的工具页面。
-          它不是抽象哲学主页，也不是世界真理机。它更像一套可以直接拿来判断问题、排序风险、寻找干预优先级的方法框架。
+          它不试图解释一切，而是试图帮助我们看清：一个系统如何形成，如何维持，
+          如何失衡，如何漂移，又如何在现实中更新、重建，或者崩解。
         </p>
-        <div class="badges">
-          <span class="badge">锚点</span>
-          <span class="badge">约束</span>
-          <span class="badge">角色与层级</span>
-          <span class="badge">推力链</span>
-          <span class="badge">阶段</span>
-        </div>
+        <p class="lede">
+          世界模型既不是情绪判断器，也不是宏大口号的堆积器。
+          它更像一种更成熟的结构意识，一种尽量不被表象欺骗的世界理解方式。
+        </p>
         <div class="cta">
-          <a class="btn primary" href="#method">阅读核心方法</a>
-          <a class="btn secondary" href="https://github.com/xixilove486/world-structure-skill">去 GitHub 开始使用</a>
+          <a class="btn primary" href="#what">开始阅读</a>
+          <a class="btn secondary" href="https://github.com/xixilove486/world-structure-skill">前往 GitHub</a>
         </div>
       </section>
-
       <section class="card hero-side">
         <div class="mini">
           <h3>一句定位</h3>
-          <p>用结构诊断替代表面归因，用可解释的判断替代情绪化判断。</p>
+          <p>如果说有些工具只是给 AI 的地图，那么世界模型希望成为给 AI 和人类共同使用的地图。</p>
         </div>
         <div class="mini">
-          <h3>适用场景</h3>
-          <p>团队推进失灵、关系持续空心、项目长期失真、组织逐步僵化、公共系统出现反馈失真。</p>
+          <h3>它关心什么</h3>
+          <p>锚点从哪里来，约束如何形成，角色怎样错位，支持链如何断裂，阶段为何变化，以及最该先修哪里。</p>
         </div>
-        <div class="mini">
-          <h3>这不是……</h3>
-          <p>不是人格判断器，不是贴标签工具，不是纯结构决定论，也不是取消理想的工具。</p>
+        <div class="quote">
+          <strong>世界模型不是只教你怎么回答一个问题，<br>而是试图帮助你重新理解：世界是如何运转的。</strong>
+          <small>它既可以成为 skill，也希望逐步成为一种可被人类直接使用的结构性世界观。</small>
         </div>
       </section>
     </div>
   </header>
 
   <main class="wrap">
-    <section class="section" id="cases">
-      <div class="kicker">3 秒看懂</div>
-      <h2>它和普通说法有什么不同？</h2>
-      <p class="lead">同一个问题，表象很短，判断更短，但分析手感会立刻不同。</p>
-      <div class="grid-3">
-        <div class="case">
-          <div class="tag">团队</div>
-          <div class="line"><span class="muted">表象：</span>一个团队总在原地打转</div>
-          <div class="line"><span class="muted">普通说法：</span>他们不够努力</div>
-          <div class="line"><span class="strong">世界模型判断：</span>锚点漂移 + 推力链失衡 + 阶段误判</div>
-        </div>
-        <div class="case">
-          <div class="tag">关系</div>
-          <div class="line"><span class="muted">表象：</span>一段关系没有崩，却越来越空</div>
-          <div class="line"><span class="muted">普通说法：</span>感情淡了</div>
-          <div class="line"><span class="strong">世界模型判断：</span>回流不足 + 角色失配 + 反馈失真</div>
-        </div>
-        <div class="case">
-          <div class="tag">项目 / 组织</div>
-          <div class="line"><span class="muted">表象：</span>项目越忙越失真，组织越来越硬</div>
-          <div class="line"><span class="muted">普通说法：</span>执行力不够</div>
-          <div class="line"><span class="strong">世界模型判断：</span>约束累积 + 推力链断裂 + 僵化阶段形成</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="method">
-      <div class="kicker">怎么分析</div>
-      <h2>它默认看这些东西。</h2>
-      <div class="grid-3">
-        <div class="panel card">
-          <h3>锚点</h3>
-          <p>系统围绕什么在维持、追求或漂移。</p>
-        </div>
-        <div class="panel card">
-          <h3>约束</h3>
-          <p>什么在限制它，什么让它无法继续承担。</p>
-        </div>
-        <div class="panel card">
-          <h3>角色与层级</h3>
-          <p>谁在维持，谁在推动，谁在连接，谁在阻塞。</p>
-        </div>
-        <div class="panel card">
-          <h3>推力链</h3>
-          <p>资源、认同、回流、合法性与情感投入从哪里来，如何进入系统、维持系统，又在何处断裂。</p>
-        </div>
-        <div class="panel card">
-          <h3>扰动 / 漂移 / 熵增</h3>
-          <p>什么在让系统失真、漂移、僵化、分裂或空心化。</p>
-        </div>
-        <div class="panel card">
-          <h3>阶段</h3>
-          <p>它处在形成、扩张、瓶颈、转型、稳定、僵化还是更新尝试。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="kicker">适用对象</div>
-      <h2>它尝试提供一套跨尺度观察框架。</h2>
+    <section class="section" id="what">
+      <div class="kicker">这是什么</div>
+      <h2>它不是零散观点，而是一张结构地图。</h2>
       <p class="lead">
-        这里强调的是“可比较的结构问题”，不是“对所有层级都同样成熟”。
-        它不是在解释万物，而是在不同尺度上观察锚点、约束、推力链、反馈与阶段如何变化。
+        对 AI，它提供一种更稳定的系统理解方式。对人类，它帮助建立结构意识、系统判断力和更成熟的世界观。
+        它试图让我们不再只盯着症状、冲突、情绪和个体动机，而是开始真正看见系统靠什么维持、为什么会失衡、什么正在被耗尽，以及什么才值得优先修复。
       </p>
-      <div class="grid-2">
+      <div class="grid-3">
         <div class="panel card">
-          <h3>个体与近身系统</h3>
-          <p>个体内部、关系、家庭、团队、社群。</p>
-          <div class="chips">
-            <span class="chip">个体</span>
-            <span class="chip">关系</span>
-            <span class="chip">家庭</span>
-            <span class="chip">团队</span>
-            <span class="chip">社群</span>
-          </div>
+          <h3>对 AI</h3>
+          <p>提供更稳的系统分析框架，让复杂问题不再只停留于表象归因。</p>
         </div>
         <div class="panel card">
-          <h3>组织与公共系统</h3>
-          <p>项目、组织、制度、圈层、公共议题中的复杂失衡问题。</p>
-          <div class="chips">
-            <span class="chip">项目</span>
-            <span class="chip">组织</span>
-            <span class="chip">制度</span>
-            <span class="chip">圈层</span>
-            <span class="chip">公共议题</span>
-          </div>
+          <h3>对人类</h3>
+          <p>帮助建立结构意识、世界观与系统判断能力，而不是只获得一时的答案。</p>
+        </div>
+        <div class="panel card">
+          <h3>对复杂对象</h3>
+          <p>把团队、关系、项目、组织、制度与历史演化重新放回结构中理解。</p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="outputs">
-      <div class="kicker">输出什么</div>
-      <h2>它通常会产出这五类结果。</h2>
-      <div class="grid-5">
-        <div class="output card">
-          <h3>结构判断</h3>
-          <p>当前系统到底发生了什么，不再只停留于表象描述。</p>
+    <section class="section" id="map">
+      <div class="kicker">为什么重要</div>
+      <h2>很多问题长期无解，不是因为没有答案，而是还没先把对象看成系统。</h2>
+      <div class="grid-2">
+        <div class="panel card">
+          <h3>我们常见的误判</h3>
+          <ul>
+            <li>把停滞误判成懒惰</li>
+            <li>把空心化误判成感情淡了</li>
+            <li>把组织僵化误判成执行力不够</li>
+            <li>把局部冲突误判成全部真相</li>
+          </ul>
         </div>
-        <div class="output card">
-          <h3>核心矛盾</h3>
-          <p>真正把系统拖向失衡的深层张力是什么。</p>
-        </div>
-        <div class="output card">
-          <h3>主要风险方向</h3>
-          <p>如果不改，它最可能往哪边坏。</p>
-        </div>
-        <div class="output card">
-          <h3>干预优先级</h3>
-          <p>如果只能先修一处，最该先修哪里。</p>
-        </div>
-        <div class="output card">
-          <h3>不确定性说明</h3>
-          <p>哪些地方还不能过度断言，哪些判断仍需保留余量。</p>
+        <div class="panel card">
+          <h3>世界模型想提供的能力</h3>
+          <ul>
+            <li>在混乱中识别结构</li>
+            <li>在表象下识别真实问题</li>
+            <li>在失衡中识别最优先修复点</li>
+            <li>在宏大叙述中保留现实检验</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section" id="boundary">
-      <div class="kicker">这不是……</div>
-      <h2>它首先是工具，其次才是表达。</h2>
-      <div class="grid-2">
-        <div class="panel card">
-          <h3>它不是什么</h3>
-          <div class="chips">
-            <span class="chip">不是人格判断器</span>
-            <span class="chip">不是贴标签工具</span>
-            <span class="chip">不是世界真理机</span>
-            <span class="chip">不是纯结构决定论</span>
-            <span class="chip">不是取消理想的工具</span>
-          </div>
-        </div>
-        <div class="panel card">
-          <h3>它更像什么</h3>
-          <p>一套对复杂系统进行结构判断、风险排序和实现条件审计的方法框架。它不是为了替代理想、取消心理、取消行动，而是为了让分析更稳、更少误读。</p>
-        </div>
+    <section class="section" id="axes">
+      <div class="kicker">七个主轴</div>
+      <h2>它默认从这七个方向观察系统。</h2>
+      <div class="grid-3">
+        <div class="axis"><h3>锚点</h3><p>系统围绕什么在维持、追求或漂移。</p></div>
+        <div class="axis"><h3>约束</h3><p>什么在限制它，什么让它不能继续承载。</p></div>
+        <div class="axis"><h3>角色与层级</h3><p>谁在维持，谁在推动，谁在连接，谁在阻塞。</p></div>
+        <div class="axis"><h3>支持链</h3><p>资源、信任、记忆、合法性与情感投入从哪里来。</p></div>
+        <div class="axis"><h3>扰动 / 漂移 / 熵增</h3><p>什么在让系统失真、漂移、僵化、分裂或空心化。</p></div>
+        <div class="axis"><h3>阶段</h3><p>它正处于形成、扩张、瓶颈、转型、稳定、僵化还是更新尝试。</p></div>
+        <div class="axis"><h3>干预优先级</h3><p>已经失衡之后，最该先修的到底是锚点、支持链、角色错位，还是现实约束。</p></div>
+      </div>
+      <div class="chips">
+        <span class="chip">团队</span>
+        <span class="chip">关系</span>
+        <span class="chip">项目</span>
+        <span class="chip">组织</span>
+        <span class="chip">制度</span>
+        <span class="chip">历史演化</span>
       </div>
     </section>
 
     <section class="section">
-      <div class="kicker">方法边界</div>
-      <h2>关于“爱”的边界</h2>
+      <div class="kicker">这不是什么</div>
+      <h2>它首先是一种纪律，其次才是一种表达。</h2>
       <div class="card statement">
-        爱不是用来替代理论解释的，而是用来标记理论解释的边界。<br><br>
-        先做结构解释，再做心理解释。只有在两者都足够强，却仍然剩下无法压平的行动余量时，才谨慎为超越性保留空间。
+        世界模型不是解释万物的万能理论，不是对个体的本质审判，
+        不是法律、医疗、金融等专业判断的替代品，也不是用来攻击、羞辱或武器化他人的语言工具。
         <small>
-          这不是把爱变小，而是避免它被滥用成偷懒的解释词。真正的方法论克制，不是急着抬高爱，而是先把结构与心理都做完。
+          它要求我们在判断之前先看结构，在归因之前先看约束，在愤怒之前先看系统，
+          在给出答案之前先承认不确定性。
         </small>
       </div>
     </section>
 
-    <section class="section">
-      <div class="kicker">理想与现实</div>
-      <h2>它不取消理想，它审计理想的实现条件。</h2>
+    <section class="section" id="conclusion">
+      <div class="kicker">一个重要结论</div>
+      <h2>“为人民服务”不是这个模型的全部，但很可能是它识别出的最高结构结论之一。</h2>
       <div class="card statement">
-        本模型不预设任何宏大理想必然失败，也不预设任何终极目标会自动实现。<br><br>
-        它关心的是：任何理想一旦进入现实组织与历史过程，就会遭遇异化、熵增、锚点漂移与反馈失真。模型的任务不是取消理想，而是帮助识别理想如何在现实中被损耗、篡改，或在何种条件下被保存。<br><br>
-        如果一个理想不能承受对其现实实现机制的分析，那么真正威胁它的，不是模型，而是它自身的脆弱。
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="notice card">
-        世界模型不是对理想的否定，而是对理想实现条件的严厉审计。
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="card statement" style="text-align:center;">
-        先理解它是什么，再决定是否使用它。<br><br>
-        <div class="cta" style="justify-content:center;">
-          <a class="btn primary" href="#method">阅读核心方法</a>
-          <a class="btn secondary" href="https://github.com/xixilove486/world-structure-skill">去 GitHub 开始使用</a>
-        </div>
+        世界模型并不把“为人民服务”当成一句单纯的宣传口号来使用。
+        它更倾向于把它看成：人类历史上已经被验证过的、最深刻的结构设计之一。
         <small>
-          如果这个项目对你有帮助，也欢迎回到 GitHub 顺手点一个 ⭐。
+          当一个系统真正把人民作为锚点，它的合法性、反馈、支持链、更新能力与组织连续性，
+          都会呈现出不同的质量。因此，“为人民服务”不是世界模型的全部，
+          却很可能是世界模型在现实历史中所识别出的最高结构结论之一。
         </small>
+      </div>
+    </section>
+
+    <section class="section" id="install">
+      <div class="kicker">使用入口</div>
+      <h2>它既是一种世界观，也已经整理成可安装的 skill。</h2>
+      <div class="grid-2">
+        <div class="panel card">
+          <h3>作品阅读入口</h3>
+          <p>优先阅读 GitHub 仓库主页与 `skills/world-structure/` 目录下的内容，理解方法骨架与长文参考层。</p>
+        </div>
+        <div class="panel card">
+          <h3>Codex 安装入口</h3>
+          <p>当前可通过 GitHub 子路径 `skills/world-structure` 直接安装，作为结构分析 skill 使用。</p>
+        </div>
+      </div>
+      <div class="cta" style="margin-top:20px;">
+        <a class="btn primary" href="https://github.com/xixilove486/world-structure-skill">查看仓库</a>
       </div>
     </section>
   </main>
 
   <footer class="wrap footer">
-    世界结构.skill · 一个用于复杂失衡问题的结构化诊断工具
+    世界模型 | 给 AI 和人类共同使用的结构地图
   </footer>
 </body>
 </html>
