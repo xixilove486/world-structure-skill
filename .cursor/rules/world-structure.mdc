@@ -1,0 +1,17 @@
+---
+description: 当任务实际上是在分析团队、关系、项目、组织或公共议题的复杂失衡，或者在维护本仓库的世界模型适配层时，调用这条规则。
+alwaysApply: false
+---
+
+# world-structure
+
+@AGENTS.md
+
+如果需要原始 skill 文本、边界或输出模板，再显式读取：
+
+- `skills/world-structure/SKILL.md`
+- `skills/world-structure/templates/analysis-template.md`
+- `skills/world-structure/resources/guardrails.md`
+
+保持仓库主体中文。  
+除非用户明确要求，不要删除现有长文正文。

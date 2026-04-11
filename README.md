@@ -25,6 +25,8 @@
   ·
   <a href="#install"><strong>安装方式</strong></a>
   ·
+  <a href="#adapters"><strong>其他接口</strong></a>
+  ·
   <a href="skills/world-structure/SKILL.md"><strong>Skill 入口</strong></a>
 </p>
 
@@ -241,6 +243,41 @@ git -C "$HOME/.agents/skills/world-structure-skill" pull --ff-only
 
 ---
 
+<a id="adapters"></a>
+## 其他接口适配
+
+为了方便不同用户直接部署，这个仓库现在额外提供了一组**薄适配层**。  
+它们不会替代现有的 skill 正文，也不会改变 `skills/world-structure/` 的安装路径。
+
+当前内置的入口包括：
+
+| 接口 | 入口文件 | 说明 |
+|---|---|---|
+| Claude Code | `CLAUDE.md` | 作为 Claude Code 的项目级记忆入口 |
+| Gemini CLI | `GEMINI.md` | 作为 Gemini CLI 的项目级上下文入口 |
+| Cursor | `AGENTS.md` / `.cursor/rules/world-structure.mdc` | 同时提供通用入口和 Cursor 规则文件 |
+| GitHub Copilot | `.github/copilot-instructions.md` | 提供仓库级 Copilot 指令，并与 `AGENTS.md` 保持一致 |
+| 通用 agent | `AGENTS.md` | 作为非特定厂商工具的默认入口 |
+
+这些文件的角色是：
+
+- 帮不同接口先找到正确入口
+- 保持“仓库主体中文 + 方法论正文不重写”
+- 避免为了适配不同工具而复制出多套逐渐漂移的内容
+
+如果你是直接打开这个仓库使用这些工具，上面的文件已经就位。  
+如果你想把它迁移到别的项目里，优先复制对应入口文件，再按需补充：
+
+- `skills/world-structure/SKILL.md`
+- `skills/world-structure/templates/analysis-template.md`
+- `skills/world-structure/resources/guardrails.md`
+
+更详细的接口说明见：
+
+- [INTERFACES.md](INTERFACES.md)
+
+---
+
 <a id="not"></a>
 ## 它不做什么？
 
@@ -280,6 +317,7 @@ git -C "$HOME/.agents/skills/world-structure-skill" pull --ff-only
 - 把 `skills/world-structure/resources/` 当成概念与长文参考层
 - 把 `skills/world-structure/templates/` 当成输出模板
 - 把 `skills/world-structure/examples/` 当成风格示范
+- 其他接口可直接读取 `AGENTS.md`、`CLAUDE.md`、`GEMINI.md`、`.cursor/rules/world-structure.mdc` 与 `.github/copilot-instructions.md`
 
 ### 给读者的阅读顺序
 1. `README.md`
@@ -297,9 +335,14 @@ git -C "$HOME/.agents/skills/world-structure-skill" pull --ff-only
 
 - 根目录是封面、目录与说明页
 - `skills/world-structure/` 是真正给 Codex 安装和调用的 skill 主体
+- `AGENTS.md`、`CLAUDE.md`、`GEMINI.md`、`.cursor/` 与 `.github/` 则是其他接口的薄适配层
 
 ```text
 world-structure-skill/
+├── AGENTS.md
+├── CLAUDE.md
+├── GEMINI.md
+├── INTERFACES.md
 ├── README.md
 ├── SKILL.md
 ├── LICENSE
@@ -310,6 +353,11 @@ world-structure-skill/
 ├── MOBILE_UPLOAD_STEPS.md
 ├── REPO_DESCRIPTION.txt
 ├── TOPICS.txt
+├── .cursor/
+│   └── rules/
+│       └── world-structure.mdc
+├── .github/
+│   └── copilot-instructions.md
 ├── docs/
 └── skills/
     └── world-structure/
